@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #111827;
+    background-image: radial-gradient(at 47% 33%, hsl(357deg 72.75% 20.15%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(240.00, 3%, 13%) 0, transparent 55%);
+}
+
+/* Custom Scrollbar Styles */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 2px; /* Width of the scrollbar - made thinner */
+    height: 2px; /* Height of horizontal scrollbar - made thinner */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Transparent track */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #800000; /* Maroon thumb */
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a00000; /* Lighter maroon on hover */
+}
+
+/* For Firefox (requires different properties) */
+/* Note: Firefox styling is less flexible than Webkit */
+html {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #800000 rgba(0, 0, 0, 0.1); /* thumb color track color */
+}

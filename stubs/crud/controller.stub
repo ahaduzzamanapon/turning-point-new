@@ -1,0 +1,64 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ modelNamespace }}\{{ modelName }};
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Http\Controllers\Controller;
+
+class {{ className }} extends Controller
+{
+    public function __construct()
+    {
+       
+    }
+
+    public function index()
+    {
+        $data = {{ modelName }}::all();
+        return Inertia::render('{{ modelName }}/Index', ['data' => $data]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('{{ modelName }}/Create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            // validation rules
+        ]);
+
+        {{ modelName }}::create($request->all());
+
+        return redirect()->route('{{ modelNameLowerCase }}.index');
+    }
+
+    public function edit($id)
+    {
+        ${{ modelNameLowerCase }} = {{ modelName }}::find($id);
+        return Inertia::render('{{ modelName }}/Edit', ['model' => ${{ modelNameLowerCase }}]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            // validation rules
+        ]);
+
+          ${{ modelNameLowerCase }} = {{ modelName }}::find($id);
+
+        ${{ modelNameLowerCase }}->update($request->all());
+
+        return redirect()->route('{{ modelNameLowerCase }}.index');
+    }
+
+    public function destroy($id)
+    {
+        ${{ modelNameLowerCase }} = {{ modelName }}::find($id);
+        ${{ modelNameLowerCase }}->delete();
+        return redirect()->route('{{ modelNameLowerCase }}.index');
+    }
+}

@@ -1,0 +1,6 @@
+{user.permissions?.includes('{{ modelNameLowerCase }}_view') && (
+    <NavLink href={route('{{ modelNameLowerCase }}.index')} active={isActive('{{ modelNameLowerCase }}.index')} icon={UserGroupIcon}>
+        {{ modelNamePlural }}
+    </NavLink>
+)}
+
