@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentAttendanceReportController;
 
 Route::get('/dashboard', [AdminController::class, 'dashboardData'])
     ->middleware(['auth', 'verified'])
@@ -87,6 +88,8 @@ Route::middleware(['auth'])->group(function () {
         
 
         // HRM Reports
+        Route::get('/reports/attendance', [App\Http\Controllers\AttendanceReportController::class, 'index'])->name('reports.attendance');
+        Route::get('/reports/student-attendance', [App\Http\Controllers\StudentAttendanceReportController::class, 'index'])->name('reports.studentAttendance');
         Route::get('/reports/expenses', [App\Http\Controllers\ReportController::class, 'ledgerWiseExpenses'])->name('reports.expenses');
         Route::get('/reports/incomes', [App\Http\Controllers\ReportController::class, 'ledgerWiseIncomes'])->name('reports.incomes');
         Route::get('/reports/profit-loss', [App\Http\Controllers\ReportController::class, 'profitLoss'])->name('reports.profitLoss');
@@ -131,6 +134,24 @@ Route::get('/registration', function () {
            
             return $course->batches;
         });
+
+        Route::get('/employees', [App\Http\Controllers\EmployeeController::class, 'getAllEmployees']);
+        Route::get('/students', [App\Http\Controllers\StudentController::class, 'getAllStudents']);
+        Route::get('/reports/attendance/daily', [App\Http\Controllers\AttendanceReportController::class, 'getDailyAttendance']);
+        Route::get('/reports/attendance/daily/export', [App\Http\Controllers\AttendanceReportController::class, 'exportDailyAttendance']);
+        Route::get('/reports/attendance/monthly', [App\Http\Controllers\AttendanceReportController::class, 'getMonthlyAttendance']);
+        Route::get('/reports/attendance/monthly/export', [App\Http\Controllers\AttendanceReportController::class, 'exportMonthlyAttendance']);
+        Route::get('/reports/attendance/continuous', [App\Http\Controllers\AttendanceReportController::class, 'getContinuousAttendance']);
+        Route::get('/reports/attendance/continuous/export', [App\Http\Controllers\AttendanceReportController::class, 'exportContinuousAttendance']);
+
+        // Student Attendance Reports
+        Route::get('/reports/student-attendance', [App\Http\Controllers\StudentAttendanceReportController::class, 'index'])->name('reports.studentAttendance');
+        Route::get('/reports/student-attendance/daily', [App\Http\Controllers\StudentAttendanceReportController::class, 'getDailyAttendance']);
+        Route::get('/reports/student-attendance/daily/export', [App\Http\Controllers\StudentAttendanceReportController::class, 'exportDailyAttendance']);
+        Route::get('/reports/student-attendance/monthly', [App\Http\Controllers\StudentAttendanceReportController::class, 'getMonthlyAttendance']);
+        Route::get('/reports/student-attendance/monthly/export', [App\Http\Controllers\StudentAttendanceReportController::class, 'exportMonthlyAttendance']);
+        Route::get('/reports/student-attendance/continuous', [App\Http\Controllers\StudentAttendanceReportController::class, 'getContinuousAttendance']);
+        Route::get('/reports/student-attendance/continuous/export', [App\Http\Controllers\StudentAttendanceReportController::class, 'exportContinuousAttendance']);
     });
 
 

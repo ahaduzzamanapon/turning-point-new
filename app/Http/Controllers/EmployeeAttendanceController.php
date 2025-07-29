@@ -56,6 +56,8 @@ class EmployeeAttendanceController extends Controller
                 'name' => $employee->name,
                 'status' => $attendance ? $attendance->status : 'absent', // Default to absent if not recorded
                 'notes' => $attendance ? $attendance->notes : '',
+                'check_in' => $attendance ? $attendance->check_in : '',
+                'check_out' => $attendance ? $attendance->check_out : '',
             ];
         });
 
@@ -73,12 +75,14 @@ class EmployeeAttendanceController extends Controller
             'employees.*.id' => 'required|exists:employees,id',
             'employees.*.status' => 'required|in:present,absent,leave',
             'employees.*.notes' => 'nullable|string',
+            'employees.*.check_in' => 'nullable|date_format:H:i',
+            'employees.*.check_out' => 'nullable|date_format:H:i|after:employees.*.check_in',
         ]);
 
         foreach ($request->employees as $employeeData) {
             EmployeeAttendance::updateOrCreate(
                 ['employee_id' => $employeeData['id'], 'date' => $request->date],
-                ['status' => $employeeData['status'], 'notes' => $employeeData['notes']]
+                ['status' => $employeeData['status'], 'notes' => $employeeData['notes'], 'check_in' => $employeeData['check_in'], 'check_out' => $employeeData['check_out']]
             );
         }
 
@@ -98,6 +102,8 @@ class EmployeeAttendanceController extends Controller
             'date' => 'required|date',
             'status' => 'required|in:present,absent,leave',
             'notes' => 'nullable|string',
+            'check_in' => 'nullable|date_format:H:i',
+            'check_out' => 'nullable|date_format:H:i|after:check_in',
         ]);
 
         $employee_attendance->update($request->all());

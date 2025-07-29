@@ -301,8 +301,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                     {user.permissions?.includes('view-employees') && <NavLink href={route('admin.employees.index')} active={isActive('admin.employees.index')} icon={UsersIcon}>Employees</NavLink>}
                                     {user.permissions?.includes('record-employee-attendance') && <NavLink href={route('admin.employee-attendances.createBulk')} active={isActive('admin.employee-attendances.createBulk')} icon={CalendarDaysIcon}>Daily Employee Attendance</NavLink>}
                                         {user.permissions?.includes('record-student-attendance') && <NavLink href={route('admin.student-attendances.createBulk')} active={isActive('admin.student-attendances.createBulk')} icon={AcademicCapIcon}>Daily Student Attendance</NavLink>}
-                                   
-                                </DropdownLink>
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.attendance')} active={isActive('admin.reports.attendance')} icon={ChartPieIcon}>Employee Attendance Report</NavLink>}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAttendance')} active={isActive('admin.reports.studentAttendance')} icon={ChartPieIcon}>Student Attendance Report</NavLink>}
+                                    </DropdownLink>
                             )}
                             
                             {user.permissions?.includes('manage-students') && (

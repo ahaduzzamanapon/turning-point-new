@@ -184,4 +184,9 @@ class StudentController extends Controller
 
         return redirect()->route('admin.students.index')->with('success', 'Selected students registration marked as complete!');
     }
+
+    public function getAllStudents()
+    {
+        return Student::all();
+    }
 }

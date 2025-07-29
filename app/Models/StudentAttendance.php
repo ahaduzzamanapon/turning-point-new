@@ -14,6 +14,8 @@ class StudentAttendance extends Model
         'date',
         'status',
         'notes',
+        'check_in',
+        'check_out',
     ];
 
     public function student()

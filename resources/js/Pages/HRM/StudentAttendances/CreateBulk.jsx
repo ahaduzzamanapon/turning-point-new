@@ -6,8 +6,11 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
         date: date,
         students: students.map(stu => ({
             id: stu.id,
+            name: stu.name,
             status: stu.status,
             notes: stu.notes,
+            check_in: stu.check_in || '',
+            check_out: stu.check_out || '',
         })),
     });
 
@@ -20,6 +23,18 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
     const handleNotesChange = (studentId, notes) => {
         setData('students', data.students.map(stu =>
             stu.id === studentId ? { ...stu, notes: notes } : stu
+        ));
+    };
+
+    const handleCheckInChange = (studentId, time) => {
+        setData('students', data.students.map(stu =>
+            stu.id === studentId ? { ...stu, check_in: time } : stu
+        ));
+    };
+
+    const handleCheckOutChange = (studentId, time) => {
+        setData('students', data.students.map(stu =>
+            stu.id === studentId ? { ...stu, check_out: time } : stu
         ));
     };
 
@@ -47,6 +62,8 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
                                         <tr>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Student Name</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Status</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Check In</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Check Out</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Notes</th>
                                         </tr>
                                     </thead>
@@ -64,6 +81,22 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
                                                         <option value="absent">Absent</option>
                                                         <option value="leave">Leave</option>
                                                     </select>
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                    <input
+                                                        type="time"
+                                                        value={student.check_in}
+                                                        onChange={(e) => handleCheckInChange(student.id, e.target.value)}
+                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                                    />
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                    <input
+                                                        type="time"
+                                                        value={student.check_out}
+                                                        onChange={(e) => handleCheckOutChange(student.id, e.target.value)}
+                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                                    />
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                     <input
