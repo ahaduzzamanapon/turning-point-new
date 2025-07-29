@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BatchSeeder::class);
         $this->call(PaymentMethodSeeder::class);
         $this->call(RepresentativeSeeder::class);
+        $this->call(AccountsPermissionsSeeder::class);
+        $this->call(HrmPermissionsSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',

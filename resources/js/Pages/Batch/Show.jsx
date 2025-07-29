@@ -9,9 +9,9 @@ export default function BatchShow({ auth, batch }) {
         >
             <Head title="Batch Details" />
 
-            <div className="py-12">
+            <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
                         <div className="p-6 text-white">
                             <h3 className="text-xl font-bold mb-4">{batch.name}</h3>
                             <p><strong>Course:</strong> {batch.course.name}</p>

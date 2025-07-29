@@ -25,9 +25,9 @@ export default function UserManagement({ auth, users, roles }) {
         >
             <Head title="User Management" />
 
-            <div className="py-12">
+            <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
                         <div className="p-6 text-white">
                             <div className="flex justify-between items-center mb-4">
                                 <h3 className="text-lg font-medium text-white">Users</h3>

@@ -152,7 +152,7 @@ export default function Dashboard({ totalStudents, totalCourses, monthlyRevenue,
                         {cardData.map((card, index) => (
                             <div
                                 key={index}
-                                className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 text-white flex items-center space-x-4"
+                                className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6  text-white flex items-center space-x-4"
                             >
                                 <div className="text-4xl">{card.icon}</div>
                                 <div>
@@ -166,12 +166,12 @@ export default function Dashboard({ totalStudents, totalCourses, monthlyRevenue,
                     {/* Charts Section */}
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         {/* Line Chart Card */}
-                        <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                        <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 ">
                             <Line data={lineChartConfig} options={lineChartOptions} />
                         </div>
 
                         {/* Bar Chart Card */}
-                        <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                        <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 ">
                             <Bar data={barChartConfig} options={barChartOptions} />
                         </div>
                     </div>

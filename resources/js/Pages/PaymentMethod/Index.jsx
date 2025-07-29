@@ -11,9 +11,9 @@ export default function Index({ data }) {
             header={<h2 className="font-semibold text-xl text-white leading-tight">PaymentMethod</h2>}
         >
             <Head title="PaymentMethod" />
-            <div className="py-12">
+            <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
                         <div className="p-6 border-b border-gray-200">
                             <div className="flex justify-between items-center">
                                 <h2 className="font-semibold text-xl text-white leading-tight">PaymentMethod</h2>

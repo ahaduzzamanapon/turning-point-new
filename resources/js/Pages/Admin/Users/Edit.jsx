@@ -24,9 +24,9 @@ export default function EditUser({ auth, user, roles }) {
         >
             <Head title="Edit User" />
 
-            <div className="py-12">
+            <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
                         <div className="p-6 text-white">
                             <h3 className="text-lg font-medium text-white mb-4">Edit User: {user.name}</h3>
                             <form onSubmit={handleSubmit}>

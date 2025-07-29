@@ -63,10 +63,36 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/students/bulk-update-status', [App\Http\Controllers\StudentController::class, 'bulkUpdateStatus'])->name('students.bulkUpdateStatus');
         Route::post('/students/{student}/verify-payment', [App\Http\Controllers\StudentController::class, 'verifyPayment'])->name('students.verifyPayment');
         Route::post('/students/{student}/reject-payment', [App\Http\Controllers\StudentController::class, 'rejectPayment'])->name('students.rejectPayment');
+        Route::post('/students/{student}/update-due-payment', [App\Http\Controllers\StudentController::class, 'updateDuePayment'])->name('students.updateDuePayment');
         Route::post('/students/{student}/mark-registration-complete', [App\Http\Controllers\StudentController::class, 'markRegistrationComplete'])->name('students.markRegistrationComplete');
         Route::post('/students/bulk-mark-registration-complete', [App\Http\Controllers\StudentController::class, 'bulkMarkRegistrationComplete'])->name('students.bulkMarkRegistrationComplete');
         Route::resource('/courses', App\Http\Controllers\CourseController::class);
         Route::resource('/batches', App\Http\Controllers\BatchController::class);
+
+        // Accounts Module Routes
+        Route::resource('/ledgers', App\Http\Controllers\LedgerController::class);
+        Route::resource('/expenses', App\Http\Controllers\ExpenseController::class);
+        Route::resource('/incomes', App\Http\Controllers\IncomeController::class);
+
+        // HRM Module Routes
+        Route::resource('/employees', App\Http\Controllers\EmployeeController::class);
+        Route::resource('/employee-attendances', App\Http\Controllers\EmployeeAttendanceController::class)->except(['create', 'store', 'show']);
+        Route::get('/employee-attendances/create-bulk', [App\Http\Controllers\EmployeeAttendanceController::class, 'createBulk'])->name('employee-attendances.createBulk');
+        Route::post('/employee-attendances/store-bulk', [App\Http\Controllers\EmployeeAttendanceController::class, 'storeBulk'])->name('employee-attendances.storeBulk');
+
+        Route::resource('/student-attendances', App\Http\Controllers\StudentAttendanceController::class)->except(['create', 'store', 'show']);
+        Route::get('/student-attendances/create-bulk', [App\Http\Controllers\StudentAttendanceController::class, 'createBulk'])->name('student-attendances.createBulk');
+        Route::post('/student-attendances/store-bulk', [App\Http\Controllers\StudentAttendanceController::class, 'storeBulk'])->name('student-attendances.storeBulk');
+
+        
+
+        // HRM Reports
+        Route::get('/reports/expenses', [App\Http\Controllers\ReportController::class, 'ledgerWiseExpenses'])->name('reports.expenses');
+        Route::get('/reports/incomes', [App\Http\Controllers\ReportController::class, 'ledgerWiseIncomes'])->name('reports.incomes');
+        Route::get('/reports/profit-loss', [App\Http\Controllers\ReportController::class, 'profitLoss'])->name('reports.profitLoss');
+        Route::get('/reports/expenses/export', [App\Http\Controllers\ReportController::class, 'exportLedgerWiseExpenses'])->name('reports.exportLedgerWiseExpenses');
+        Route::get('/reports/incomes/export', [App\Http\Controllers\ReportController::class, 'exportLedgerWiseIncomes'])->name('reports.exportLedgerWiseIncomes');
+        Route::get('/reports/profit-loss/export', [App\Http\Controllers\ReportController::class, 'exportProfitLoss'])->name('reports.exportProfitLoss');
 
     });
 });

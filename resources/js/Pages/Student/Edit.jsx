@@ -2,53 +2,21 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
 
-export default function StudentEdit({ auth, student }) {
+export default function StudentEdit({ auth, student, courses, batches, paymentMethods, representatives }) {
     const { data, setData, put, processing, errors } = useForm({
         candidate_full_name: student.candidate_full_name || '',
         mobile_number: student.mobile_number || '',
         email: student.email || '',
         full_address: student.full_address || '',
-        payment_method: student.payment_method || '',
+        payment_method_id: student.payment_method_id || '',
         sender_mobile_number: student.sender_mobile_number || '',
         amount_sent: student.amount_sent || '',
         transaction_id: student.transaction_id || '',
-        course_interested: student.course_interested || '',
-        bach_interested: student.bach_interested || '',
+        course_interested_id: student.course_interested_id || '',
+        bach_interested_id: student.bach_interested_id || '',
         facebook_profile_link: student.facebook_profile_link || '',
-        representative_name: student.representative_name || '',
+        representative_id: student.representative_id || '',
     });
-
-    const courses = [
-        "Ad + Govt. Bank + Private Bank Regular Batch (Pri.+Written)",
-        "Premium Written Batch (Only Bank Job )",
-        "IT Special Batch (Only Bank Job)",
-        "Basic Course (Math +English)",
-        "O.G Crash Course",
-        "২৪ তম ব্যাচ (রাত ৮ টায়) রেগুলার (প্রিলি. + রিটেন)(Upcoming New Batch)",
-        "IT Special Batch-01(Only Bank Job)",
-        "Basic Course (Math +English)-01",
-        "O.G Crash Course"
-    ];
-
-    const representatives = [
-        "Sanjana -01896224207",
-        "Zannat - 01896224202",
-        "Liza -01896224206",
-        "Nasrin -01896224208",
-        "Tanusree -01896400336",
-        "Antora - 01896400333",
-        "Tania - 01896224205",
-        "Bappi Das Sir - 01896224210",
-        "Tarek Sir - 01896224200",
-        "Mamun Sir- 01896224211"
-    ];
-
-    const bach = [
-        "২৪ তম ব্যাচ (রাত ৮ টায়) রেগুলার (প্রিলি. + রিটেন)(Upcoming New Batch)",
-        "IT Special Batch-01(Only Bank Job)",
-        "Basic Course (Math +English)-01",
-        "O.G  Crash Course",
-    ];
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -62,9 +30,9 @@ export default function StudentEdit({ auth, student }) {
         >
             <Head title="Edit Student" />
 
-            <div className="py-12">
+            <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6">
+                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
                         <div className="p-6 text-white">
                             <form onSubmit={handleSubmit} className="space-y-6">
 
@@ -72,14 +40,14 @@ export default function StudentEdit({ auth, student }) {
                                     <label htmlFor="course_interested" className="block text-sm font-medium text-white">Choose Your Course <span className="text-red-500">*</span></label>
                                     <select
                                         id="course_interested"
-                                        value={data.course_interested}
-                                        onChange={(e) => setData('course_interested', e.target.value)}
+                                        value={data.course_interested_id}
+                                        onChange={(e) => setData('course_interested_id', e.target.value)}
                                         className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                         required
                                     >
                                         <option value="">Choose Your Course</option>
-                                        {courses.map((course, index) => (
-                                            <option key={index} value={course}>{course}</option>
+                                        {courses.map((course) => (
+                                            <option key={course.id} value={course.id}>{course.name}</option>
                                         ))}
                                     </select>
                                     {errors.course_interested && <div className="text-red-500 text-sm mt-1">{errors.course_interested}</div>}
@@ -140,53 +108,23 @@ export default function StudentEdit({ auth, student }) {
                                 <div>
                                     <label className="block text-sm font-medium text-white mb-2">Your payment methods <span className="text-red-500">*</span></label>
                                     <div className="mt-1 space-y-2">
-                                        <div className="flex items-center">
-                                            <input
-                                                type="radio"
-                                                id="bkash"
-                                                name="payment_method"
-                                                value="Bkash (Merchant) (Payment) : 01896 22 42 00"
-                                                onChange={(e) => setData('payment_method', e.target.value)}
-                                                className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
-                                                required
-                                            />
-                                            <label htmlFor="bkash" className="ml-3 block text-sm font-medium text-white">Bkash (Merchant) (Payment) : 01896 22 42 00</label>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <input
-                                                type="radio"
-                                                id="nagad"
-                                                name="payment_method"
-                                                value="Nagad (Merchant) (Payment) : 01896 22 42 01"
-                                                onChange={(e) => setData('payment_method', e.target.value)}
-                                                className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
-                                            />
-                                            <label htmlFor="nagad" className="ml-3 block text-sm font-medium text-white">Nagad (Merchant) (Payment) : 01896 22 42 01</label>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <input
-                                                type="radio"
-                                                id="cash_in_hand"
-                                                name="payment_method"
-                                                value="Cash in Hand (Office)"
-                                                onChange={(e) => setData('payment_method', e.target.value)}
-                                                className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
-                                            />
-                                            <label htmlFor="cash_in_hand" className="ml-3 block text-sm font-medium text-white">Cash in Hand (Office)</label>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <input
-                                                type="radio"
-                                                id="rocket"
-                                                name="payment_method"
-                                                value="Rocket (Send Money) : 018304502805"
-                                                onChange={(e) => setData('payment_method', e.target.value)}
-                                                className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
-                                            />
-                                            <label htmlFor="rocket" className="ml-3 block text-sm font-medium text-white">Rocket (Send Money) : 018304502805</label>
-                                        </div>
+                                        {paymentMethods.map((method) => (
+                                            <div key={method.id} className="flex items-center">
+                                                <input
+                                                    type="radio"
+                                                    id={`payment_method_${method.id}`}
+                                                    name="payment_method_id"
+                                                    value={method.id}
+                                                    onChange={(e) => setData('payment_method_id', e.target.value)}
+                                                    className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
+                                                    checked={data.payment_method_id == method.id}
+                                                    required
+                                                />
+                                                <label htmlFor={`payment_method_${method.id}`} className="ml-3 block text-sm font-medium text-white">{method.name} : {method.number}</label>
+                                            </div>
+                                        ))}
                                     </div>
-                                    {errors.payment_method && <div className="text-red-500 text-sm mt-1">{errors.payment_method}</div>}
+                                    {errors.payment_method_id && <div className="text-red-500 text-sm mt-1">{errors.payment_method_id}</div>}
                                 </div>
 
                                 <div>
@@ -232,17 +170,17 @@ export default function StudentEdit({ auth, student }) {
                                     <label htmlFor="bach_interested" className="block text-sm font-medium text-white">যে ব্যাচে ভর্তি হতে আগ্রহী? <span className="text-red-500">*</span></label>
                                     <select
                                         id="bach_interested"
-                                        value={data.bach_interested}
-                                        onChange={(e) => setData('bach_interested', e.target.value)}
+                                        value={data.bach_interested_id}
+                                        onChange={(e) => setData('bach_interested_id', e.target.value)}
                                         className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                         required
                                     >
                                         <option value="">ব্যাচ নির্বাচন করুন</option>
-                                        {bach.map((course, index) => (
-                                            <option key={index} value={course}>{course}</option>
+                                        {batches.map((batch) => (
+                                            <option key={batch.id} value={batch.id}>{batch.name}</option>
                                         ))}
                                     </select>
-                                    {errors.course_interested && <div className="text-red-500 text-sm mt-1">{errors.course_interested}</div>}
+                                    {errors.bach_interested_id && <div className="text-red-500 text-sm mt-1">{errors.bach_interested_id}</div>}
                                 </div>
 
 
@@ -264,17 +202,17 @@ export default function StudentEdit({ auth, student }) {
                                     <label htmlFor="representative_name" className="block text-sm font-medium text-white">আপনি আমাদের যে প্রতিনিধির সাথে  WhatsApp যুক্ত আছেন বা  কথা বলে এডমিশন নিয়েছেন তার নাম নির্বাচন করুন? <span className="text-red-500">*</span></label>
                                     <select
                                         id="representative_name"
-                                        value={data.representative_name}
-                                        onChange={(e) => setData('representative_name', e.target.value)}
+                                        value={data.representative_id}
+                                        onChange={(e) => setData('representative_id', e.target.value)}
                                         className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                         required
                                     >
                                         <option value="">Select a Representative</option>
-                                        {representatives.map((rep, index) => (
-                                            <option key={index} value={rep}>{rep}</option>
+                                        {representatives.map((rep) => (
+                                            <option key={rep.id} value={rep.id}>{rep.name}</option>
                                         ))}
                                     </select>
-                                    {errors.representative_name && <div className="text-red-500 text-sm mt-1">{errors.representative_name}</div>}
+                                    {errors.representative_id && <div className="text-red-500 text-sm mt-1">{errors.representative_id}</div>}
                                 </div>
 
                                 <div className="flex items-center">

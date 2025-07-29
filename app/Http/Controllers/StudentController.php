@@ -7,6 +7,10 @@ use App\Http\Requests\StudentRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Log;
+use App\Models\Course;
+use App\Models\Batch;
+use App\Models\PaymentMethod;
+use App\Models\Representative;
 
 class StudentController extends Controller
 {
@@ -50,8 +54,17 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
+        $courses = Course::all();
+        $batches = Batch::all();
+        $paymentMethods = PaymentMethod::all();
+        $representatives = Representative::all();
+
         return Inertia::render('Student/Edit', [
-            'student' => $student,
+            'student' => $student->load('course', 'batch', 'paymentMethod', 'representative'),
+            'courses' => $courses,
+            'batches' => $batches,
+            'paymentMethods' => $paymentMethods,
+            'representatives' => $representatives,
         ]);
     }
 
@@ -107,6 +120,39 @@ class StudentController extends Controller
         $student->save();
 
         return redirect()->route('admin.students.index')->with('success', 'Payment rejected successfully!');
+    }
+
+    public function updateDuePayment(Request $request, Student $student)
+    {
+        Log::info('Raw Request Content:', ['content' => file_get_contents('php://input')]);
+        Log::info('updateDuePayment: Request data:', $request->all());
+        $request->validate([
+            'amount_paid' => 'required|numeric|min:0',
+        ]);
+
+        Log::info('updateDuePayment: Student ID', ['id' => $student->id]);
+        Log::info('updateDuePayment: Amount paid from request', ['amount_paid' => $request->amount_paid]);
+        Log::info('updateDuePayment: Current amount_sent before update', ['amount_sent' => $student->amount_sent]);
+
+        $student->amount_sent += $request->amount_paid;
+        $student->save();
+
+        Log::info('updateDuePayment: New amount_sent after update', ['amount_sent' => $student->amount_sent]);
+
+        // Reload the student with the course relationship to get the latest course amount
+        $student->load('course');
+
+        Log::info('updateDuePayment: Course amount', ['course_amount' => $student->course->amount]);
+
+        if ($student->amount_sent >= $student->course->amount) {
+            $student->payment_status = 'verified';
+            $student->save();
+            Log::info('updateDuePayment: Payment status set to verified', ['payment_status' => $student->payment_status]);
+        } else {
+            Log::info('updateDuePayment: Payment status remains unchanged', ['payment_status' => $student->payment_status]);
+        }
+
+        return redirect()->route('admin.students.index')->with('success', 'Due payment updated successfully!');
     }
 
     public function markRegistrationComplete(Student $student)

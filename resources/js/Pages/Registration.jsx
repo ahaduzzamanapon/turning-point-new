@@ -74,7 +74,7 @@ export default function Registration() {
         <>
             <Head title="Registration Form - Turning Point Job Aid" />
             <div
-                className="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 font-sans relative"
+                className="min-h-screen flex flex-col items-center justify-center py-2 px-4 sm:px-6 lg:px-8 font-sans relative"
                 style={{ backgroundImage: `url(${backgroundImageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
             >
                 {/* Gradient Overlay */}
