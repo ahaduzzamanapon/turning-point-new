@@ -120,39 +120,32 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                     </NavLink>
                                 )}
 
-                                {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings'].includes(p)) && (
-                                    <DropdownLink title="Admin Panel" icon={CogIcon} active={isActive('admin.users') || isActive('admin.roles') || isActive('admin.permissions') || isActive('admin.settings.index') || isActive('admin.courses.index') || isActive('admin.batches.index') || isActive('paymentmethods.index') || isActive('representatives.index')}>
+                                {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings', 'paymentmethods_view', 'representatives_view'].includes(p)) && (
+                                    <DropdownLink title="Admin Panel" icon={CogIcon} active={currentRoute.startsWith('admin.users') || currentRoute.startsWith('admin.roles') || currentRoute.startsWith('admin.permissions') || currentRoute.startsWith('admin.settings') || currentRoute.startsWith('paymentmethods') || currentRoute.startsWith('representatives')}>
                                         {user.permissions?.includes('manage-users') && <NavLink href={route('admin.users')} active={isActive('admin.users')} icon={UsersIcon}>Users</NavLink>}
                                         {user.permissions?.includes('manage-roles') && <NavLink href={route('admin.roles')} active={isActive('admin.roles')} icon={UserGroupIcon}>Roles</NavLink>}
                                         {user.permissions?.includes('manage-permissions') && <NavLink href={route('admin.permissions')} active={isActive('admin.permissions')} icon={UserGroupIcon}>Permissions</NavLink>}
                                         {user.permissions?.includes('manage-settings') && <NavLink href={route('admin.settings.index')} active={isActive('admin.settings.index')} icon={CogIcon}>Settings</NavLink>}
+                                        {user.permissions?.includes('paymentmethods_view') && (
+                                            <NavLink href={route('paymentmethods.index')} active={isActive('paymentmethods.index')} icon={BanknotesIcon}>
+                                                Payment Methods
+                                            </NavLink>
+                                        )}
+                                        {user.permissions?.includes('representatives_view') && (
+                                            <NavLink href={route('representatives.index')} active={isActive('representatives.index')} icon={UserGroupIcon}>
+                                                Representatives
+                                            </NavLink>
+                                        )}
                                     </DropdownLink>
                                 )}
 
-                                {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings'].includes(p)) && (
-                                    <DropdownLink title="Admin Panel" icon={CogIcon} active={currentRoute.startsWith('admin.users') || currentRoute.startsWith('admin.roles') || currentRoute.startsWith('admin.permissions') || currentRoute.startsWith('admin.settings') || currentRoute.startsWith('admin.courses') || currentRoute.startsWith('admin.batches') || currentRoute.startsWith('paymentmethods') || currentRoute.startsWith('representatives')}>
-                                        {user.permissions?.includes('manage-users') && <NavLink href={route('admin.users')} active={isActive('admin.users')} icon={UsersIcon}>Users</NavLink>}
-                                        {user.permissions?.includes('manage-roles') && <NavLink href={route('admin.roles')} active={isActive('admin.roles')} icon={UserGroupIcon}>Roles</NavLink>}
-                                        {user.permissions?.includes('manage-permissions') && <NavLink href={route('admin.permissions')} active={isActive('admin.permissions')} icon={UserGroupIcon}>Permissions</NavLink>}
-                                        {user.permissions?.includes('manage-settings') && <NavLink href={route('admin.settings.index')} active={isActive('admin.settings.index')} icon={CogIcon}>Settings</NavLink>}
-                                    </DropdownLink>
-                                )}
-
-                                {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings'].includes(p)) && (
-                                    <DropdownLink title="Admin Panel" icon={CogIcon} active={currentRoute.startsWith('admin.users') || currentRoute.startsWith('admin.roles') || currentRoute.startsWith('admin.permissions') || currentRoute.startsWith('admin.settings') || currentRoute.startsWith('admin.courses') || currentRoute.startsWith('admin.batches') || currentRoute.startsWith('paymentmethods') || currentRoute.startsWith('representatives')}>
-                                        {user.permissions?.includes('manage-users') && <NavLink href={route('admin.users')} active={isActive('admin.users')} icon={UsersIcon}>Users</NavLink>}
-                                        {user.permissions?.includes('manage-roles') && <NavLink href={route('admin.roles')} active={isActive('admin.roles')} icon={UserGroupIcon}>Roles</NavLink>}
-                                        {user.permissions?.includes('manage-permissions') && <NavLink href={route('admin.permissions')} active={isActive('admin.permissions')} icon={UserGroupIcon}>Permissions</NavLink>}
-                                        {user.permissions?.includes('manage-settings') && <NavLink href={route('admin.settings.index')} active={isActive('admin.settings.index')} icon={CogIcon}>Settings</NavLink>}
-                                    </DropdownLink>
-                                )}
-
-                                {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings'].includes(p)) && (
-                                    <DropdownLink title="Admin Panel" icon={CogIcon} active={currentRoute.startsWith('admin.users') || currentRoute.startsWith('admin.roles') || currentRoute.startsWith('admin.permissions') || currentRoute.startsWith('admin.settings') || currentRoute.startsWith('admin.courses') || currentRoute.startsWith('admin.batches') || currentRoute.startsWith('paymentmethods') || currentRoute.startsWith('representatives')}>
-                                        {user.permissions?.includes('manage-users') && <NavLink href={route('admin.users')} active={isActive('admin.users')} icon={UsersIcon}>Users</NavLink>}
-                                        {user.permissions?.includes('manage-roles') && <NavLink href={route('admin.roles')} active={isActive('admin.roles')} icon={UserGroupIcon}>Roles</NavLink>}
-                                        {user.permissions?.includes('manage-permissions') && <NavLink href={route('admin.permissions')} active={isActive('admin.permissions')} icon={UserGroupIcon}>Permissions</NavLink>}
-                                        {user.permissions?.includes('manage-settings') && <NavLink href={route('admin.settings.index')} active={isActive('admin.settings.index')} icon={CogIcon}>Settings</NavLink>}
+                                {user.permissions?.includes('manage-hrm') && (
+                                    <DropdownLink title="HRM" icon={BriefcaseIcon} active={currentRoute.startsWith('admin.employees') || currentRoute.startsWith('admin.employee-attendances') || currentRoute.startsWith('admin.student-attendances') || currentRoute.startsWith('admin.reports.employeeAttendance') || currentRoute.startsWith('admin.reports.studentAttendance') || currentRoute.startsWith('admin.reports.employeeAbsence') || currentRoute.startsWith('admin.reports.studentAbsence')}>
+                                        {user.permissions?.includes('view-employees') && <NavLink href={route('admin.employees.index')} active={isActive('admin.employees.index')} icon={UsersIcon}>Employees</NavLink>}
+                                        {user.permissions?.includes('record-employee-attendance') && <NavLink href={route('admin.employee-attendances.createBulk')} active={isActive('admin.employee-attendances.createBulk')} icon={CalendarDaysIcon}>Daily Employee Attendance</NavLink>}
+                                        {user.permissions?.includes('record-student-attendance') && <NavLink href={route('admin.student-attendances.createBulk')} active={isActive('admin.student-attendances.createBulk')} icon={AcademicCapIcon}>Daily Student Attendance</NavLink>}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.attendance')} active={isActive('admin.reports.attendance')} icon={ChartPieIcon}>Employee Attendance Report</NavLink>}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAttendance')} active={isActive('admin.reports.studentAttendance')} icon={ChartPieIcon}>Student Attendance Report</NavLink>}
                                     </DropdownLink>
                                 )}
 
@@ -171,43 +164,22 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                     </DropdownLink>
                                 )}
 
-                                {user.permissions?.includes('manage-hrm') && (
-                                    <DropdownLink title="HRM" icon={BriefcaseIcon} active={currentRoute.startsWith('admin.employees') || currentRoute.startsWith('admin.employee-attendances') || currentRoute.startsWith('admin.student-attendances') || currentRoute.startsWith('admin.reports.employeeAttendance') || currentRoute.startsWith('admin.reports.studentAttendance') || currentRoute.startsWith('admin.reports.employeeAbsence') || currentRoute.startsWith('admin.reports.studentAbsence')}>
-                                        {user.permissions?.includes('view-employees') && <NavLink href={route('admin.employees.index')} active={isActive('admin.employees.index')} icon={UsersIcon}>Employees</NavLink>}
-                                        {user.permissions?.includes('record-employee-attendance') && <NavLink href={route('admin.employee-attendances.createBulk')} active={isActive('admin.employee-attendances.createBulk')} icon={CalendarDaysIcon}>Daily Employee Attendance</NavLink>}
-                                        {user.permissions?.includes('record-student-attendance') && <NavLink href={route('admin.student-attendances.createBulk')} active={isActive('admin.student-attendances.createBulk')} icon={AcademicCapIcon}>Daily Student Attendance</NavLink>}
-                                        
-                                    </DropdownLink>
-                                )}
-
                                 {user.permissions?.includes('manage-students') && (
-                                    <NavLink href={route('admin.students.index')} active={isActive('admin.students.index')} icon={AcademicCapIcon}>
-                                        Students
-                                    </NavLink>
-                                )}
-
-                                {user.permissions?.includes('manage-courses') && (
-                                    <NavLink href={route('admin.courses.index')} active={isActive('admin.courses.index')} icon={RectangleStackIcon}>
-                                        Courses
-                                    </NavLink>
-                                )}
-
-                                {user.permissions?.includes('manage-batches') && (
-                                    <NavLink href={route('admin.batches.index')} active={isActive('admin.batches.index')} icon={BuildingOfficeIcon}>
-                                        Batches
-                                    </NavLink>
-                                )}
-
-                                {user.permissions?.includes('paymentmethods_view') && (
-                                    <NavLink href={route('paymentmethods.index')} active={isActive('paymentmethods.index')} icon={BanknotesIcon}>
-                                        Payment Methods
-                                    </NavLink>
-                                )}
-
-                                {user.permissions?.includes('representatives_view') && (
-                                    <NavLink href={route('representatives.index')} active={isActive('representatives.index')} icon={UserGroupIcon}>
-                                       
-                                    </NavLink>
+                                    <DropdownLink title="Student Management" icon={AcademicCapIcon} active={currentRoute.startsWith('admin.students') || currentRoute.startsWith('admin.courses') || currentRoute.startsWith('admin.batches')}>
+                                        {user.permissions?.includes('manage-students') && <NavLink href={route('admin.students.index')} active={isActive('admin.students.index')} icon={AcademicCapIcon}>Students</NavLink>}
+                                        {user.permissions?.includes('manage-courses') && (
+                                            <NavLink href={route('admin.courses.index')} active={isActive('admin.courses.index')} icon={RectangleStackIcon}>
+                                                Courses
+                                            </NavLink>
+                                        )}
+                                        {user.permissions?.includes('manage-batches') && (
+                                            <NavLink href={route('admin.batches.index')} active={isActive('admin.batches.index')} icon={BuildingOfficeIcon}>
+                                                Batches
+                                            </NavLink>
+                                        )}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAdmission')} active={isActive('admin.reports.studentAdmission')} icon={ChartPieIcon}>Student Admission Report</NavLink>}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAdmission')} active={isActive('admin.reports.studentAdmission')} icon={ChartPieIcon}>Student Admission Report</NavLink>}
+                                    </DropdownLink>
                                 )}
                             </nav>
                         </div>
@@ -249,30 +221,17 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                 </NavLink>
                             )}
 
-                            {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings', 'manage-courses', 'manage-batches', 'paymentmethods_view', 'representatives_view'].includes(p)) && (
-                                <DropdownLink title="Admin Panel" icon={CogIcon} active={currentRoute.startsWith('admin.users') || currentRoute.startsWith('admin.roles') || currentRoute.startsWith('admin.permissions') || currentRoute.startsWith('admin.settings') || currentRoute.startsWith('admin.courses') || currentRoute.startsWith('admin.batches') || currentRoute.startsWith('paymentmethods') || currentRoute.startsWith('representatives')}>
+                            {user.permissions?.some(p => ['manage-users', 'manage-roles', 'manage-permissions', 'manage-settings', 'paymentmethods_view', 'representatives_view'].includes(p)) && (
+                                <DropdownLink title="Admin Panel" icon={CogIcon} active={currentRoute.startsWith('admin.users') || currentRoute.startsWith('admin.roles') || currentRoute.startsWith('admin.permissions') || currentRoute.startsWith('admin.settings') || currentRoute.startsWith('paymentmethods') || currentRoute.startsWith('representatives')}>
                                     {user.permissions?.includes('manage-users') && <NavLink href={route('admin.users')} active={isActive('admin.users')} icon={UsersIcon}>Users</NavLink>}
                                     {user.permissions?.includes('manage-roles') && <NavLink href={route('admin.roles')} active={isActive('admin.roles')} icon={UserGroupIcon}>Roles</NavLink>}
                                     {user.permissions?.includes('manage-permissions') && <NavLink href={route('admin.permissions')} active={isActive('admin.permissions')} icon={UserGroupIcon}>Permissions</NavLink>}
                                     {user.permissions?.includes('manage-settings') && <NavLink href={route('admin.settings.index')} active={isActive('admin.settings.index')} icon={CogIcon}>Settings</NavLink>}
-                                    {user.permissions?.includes('manage-courses') && (
-                                        <NavLink href={route('admin.courses.index')} active={isActive('admin.courses.index')} icon={RectangleStackIcon}>
-                                            Courses
-                                        </NavLink>
-                                    )}
-
-                                    {user.permissions?.includes('manage-batches') && (
-                                        <NavLink href={route('admin.batches.index')} active={isActive('admin.batches.index')} icon={BuildingOfficeIcon}>
-                                            Batches
-                                        </NavLink>
-                                    )}
-
                                     {user.permissions?.includes('paymentmethods_view') && (
                                         <NavLink href={route('paymentmethods.index')} active={isActive('paymentmethods.index')} icon={BanknotesIcon}>
                                             Payment Methods
                                         </NavLink>
                                     )}
-
                                     {user.permissions?.includes('representatives_view') && (
                                         <NavLink href={route('representatives.index')} active={isActive('representatives.index')} icon={UserGroupIcon}>
                                             Representatives
@@ -281,6 +240,16 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                 </DropdownLink>
                             )}
 
+                            {user.permissions?.includes('manage-hrm') && (
+                                <DropdownLink title="HRM" icon={BriefcaseIcon} active={currentRoute.startsWith('admin.employees') || currentRoute.startsWith('admin.employee-attendances') || currentRoute.startsWith('admin.student-attendances') || currentRoute.startsWith('admin.reports.employeeAttendance') || currentRoute.startsWith('admin.reports.studentAttendance') || currentRoute.startsWith('admin.reports.employeeAbsence') || currentRoute.startsWith('admin.reports.studentAbsence')}>
+                                    {user.permissions?.includes('view-employees') && <NavLink href={route('admin.employees.index')} active={isActive('admin.employees.index')} icon={UsersIcon}>Employees</NavLink>}
+                                    {user.permissions?.includes('record-employee-attendance') && <NavLink href={route('admin.employee-attendances.createBulk')} active={isActive('admin.employee-attendances.createBulk')} icon={CalendarDaysIcon}>Daily Employee Attendance</NavLink>}
+                                        {user.permissions?.includes('record-student-attendance') && <NavLink href={route('admin.student-attendances.createBulk')} active={isActive('admin.student-attendances.createBulk')} icon={AcademicCapIcon}>Daily Student Attendance</NavLink>}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.attendance')} active={isActive('admin.reports.attendance')} icon={ChartPieIcon}>Employee Attendance Report</NavLink>}
+                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAttendance')} active={isActive('admin.reports.studentAttendance')} icon={ChartPieIcon}>Student Attendance Report</NavLink>}
+                                    </DropdownLink>
+                            )}
+                            
                             {user.permissions?.includes('manage-accounts') && (
                                 <DropdownLink title="Accounts" icon={WalletIcon} active={currentRoute.startsWith('admin.ledgers') || currentRoute.startsWith('admin.expenses') || currentRoute.startsWith('admin.incomes') || currentRoute.startsWith('admin.reports')}>
                                     {user.permissions?.includes('view-ledgers') && <NavLink href={route('admin.ledgers.index')} active={isActive('admin.ledgers.index')} icon={RectangleStackIcon}>Ledgers</NavLink>}
@@ -296,20 +265,21 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                 </DropdownLink>
                             )}
 
-                            {user.permissions?.includes('manage-hrm') && (
-                                <DropdownLink title="HRM" icon={BriefcaseIcon} active={currentRoute.startsWith('admin.employees') || currentRoute.startsWith('admin.employee-attendances') || currentRoute.startsWith('admin.student-attendances') || currentRoute.startsWith('admin.reports.employeeAttendance') || currentRoute.startsWith('admin.reports.studentAttendance') || currentRoute.startsWith('admin.reports.employeeAbsence') || currentRoute.startsWith('admin.reports.studentAbsence')}>
-                                    {user.permissions?.includes('view-employees') && <NavLink href={route('admin.employees.index')} active={isActive('admin.employees.index')} icon={UsersIcon}>Employees</NavLink>}
-                                    {user.permissions?.includes('record-employee-attendance') && <NavLink href={route('admin.employee-attendances.createBulk')} active={isActive('admin.employee-attendances.createBulk')} icon={CalendarDaysIcon}>Daily Employee Attendance</NavLink>}
-                                        {user.permissions?.includes('record-student-attendance') && <NavLink href={route('admin.student-attendances.createBulk')} active={isActive('admin.student-attendances.createBulk')} icon={AcademicCapIcon}>Daily Student Attendance</NavLink>}
-                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.attendance')} active={isActive('admin.reports.attendance')} icon={ChartPieIcon}>Employee Attendance Report</NavLink>}
-                                        {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAttendance')} active={isActive('admin.reports.studentAttendance')} icon={ChartPieIcon}>Student Attendance Report</NavLink>}
-                                    </DropdownLink>
-                            )}
-                            
                             {user.permissions?.includes('manage-students') && (
-                                <NavLink href={route('admin.students.index')} active={isActive('admin.students.index')} icon={AcademicCapIcon}>
-                                    Students
-                                </NavLink>
+                                <DropdownLink title="Student Management" icon={AcademicCapIcon} active={currentRoute.startsWith('admin.students') || currentRoute.startsWith('admin.courses') || currentRoute.startsWith('admin.batches')}>
+                                    {user.permissions?.includes('manage-students') && <NavLink href={route('admin.students.index')} active={isActive('admin.students.index')} icon={AcademicCapIcon}>Students</NavLink>}
+                                    {user.permissions?.includes('manage-courses') && (
+                                        <NavLink href={route('admin.courses.index')} active={isActive('admin.courses.index')} icon={RectangleStackIcon}>
+                                            Courses
+                                        </NavLink>
+                                    )}
+                                    {user.permissions?.includes('manage-batches') && (
+                                        <NavLink href={route('admin.batches.index')} active={isActive('admin.batches.index')} icon={BuildingOfficeIcon}>
+                                            Batches
+                                        </NavLink>
+                                    )}
+                                    {user.permissions?.includes('view-reports') && <NavLink href={route('admin.reports.studentAdmission')} active={isActive('admin.reports.studentAdmission')} icon={ChartPieIcon}>Student Admission Report</NavLink>}
+                                </DropdownLink>
                             )}
 
 

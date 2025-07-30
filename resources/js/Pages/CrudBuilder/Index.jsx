@@ -223,14 +223,14 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                             {output && (
                                 <div className="mt-6 p-4 bg-gray-100 rounded-md">
                                     <h3 className="text-lg font-medium text-white">Generation Output:</h3>
-                                    <pre className="mt-2 text-sm text-gray-800 whitespace-pre-wrap">{output}</pre>
+                                    <pre className="mt-2 text-sm text-white whitespace-pre-wrap">{output}</pre>
                                 </div>
                             )}
 
                             {jsonConfig && (
                                 <div className="mt-6 p-4 bg-gray-100 rounded-md">
                                     <h3 className="text-lg font-medium text-white">Generated JSON Config:</h3>
-                                    <pre className="mt-2 text-sm text-gray-800 whitespace-pre-wrap">{jsonConfig}</pre>
+                                    <pre className="mt-2 text-sm text-white whitespace-pre-wrap">{jsonConfig}</pre>
                                 </div>
                             )}
                         </div>

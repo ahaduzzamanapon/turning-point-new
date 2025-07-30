@@ -8,7 +8,11 @@ use App\Models\Course;
 use App\Models\Representative;
 use App\Models\Batch;
 use App\Models\PaymentMethod;
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentAttendanceReportController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\BatchController;
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -18,8 +22,7 @@ Route::get('/', function () {
     ]);
 });
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\StudentAttendanceReportController;
+
 
 Route::get('/dashboard', [AdminController::class, 'dashboardData'])
     ->middleware(['auth', 'verified'])
@@ -36,39 +39,39 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/crud-builder', [App\Http\Controllers\CrudBuilderController::class, 'generate'])->name('crud.generate');
 
     Route::prefix('admin')->name('admin.')->group(function () {
-        Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('index');
-        Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
-        Route::get('/roles', [App\Http\Controllers\AdminController::class, 'roles'])->name('roles');
-        Route::get('/permissions', [App\Http\Controllers\AdminController::class, 'permissions'])->name('permissions');
-        Route::post('/users/assign-role', [App\Http\Controllers\AdminController::class, 'assignRole'])->name('users.assignRole');
-        Route::post('/users/remove-role', [App\Http\Controllers\AdminController::class, 'removeRole'])->name('users.removeRole');
-        Route::get('/users/create', [App\Http\Controllers\AdminController::class, 'createUser'])->name('users.create');
-        Route::post('/users', [App\Http\Controllers\AdminController::class, 'storeUser'])->name('users.store');
-        Route::get('/users/{user}/edit', [App\Http\Controllers\AdminController::class, 'editUser'])->name('users.edit');
-        Route::put('/users/{user}', [App\Http\Controllers\AdminController::class, 'updateUser'])->name('users.update');
-        Route::delete('/users/{user}', [App\Http\Controllers\AdminController::class, 'destroyUser'])->name('users.destroy');
-        Route::post('/roles/give-permission', [App\Http\Controllers\AdminController::class, 'givePermission'])->name('roles.givePermission');
-        Route::post('/roles/revoke-permission', [App\Http\Controllers\AdminController::class, 'revokePermission'])->name('roles.revokePermission');
-        Route::post('/roles/sync-permissions', [App\Http\Controllers\AdminController::class, 'syncPermissions'])->name('roles.syncPermissions');
-        Route::get('/roles/create', [App\Http\Controllers\AdminController::class, 'createRole'])->name('roles.create');
-        Route::post('/roles', [App\Http\Controllers\AdminController::class, 'storeRole'])->name('roles.store');
-        Route::get('/roles/{role}/edit', [App\Http\Controllers\AdminController::class, 'editRole'])->name('roles.edit');
-        Route::put('/roles/{role}', [App\Http\Controllers\AdminController::class, 'updateRole'])->name('roles.update');
-        Route::delete('/roles/{role}', [App\Http\Controllers\AdminController::class, 'destroyRole'])->name('roles.destroy');
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::get('/users', [AdminController::class, 'users'])->name('users');
+        Route::get('/roles', [AdminController::class, 'roles'])->name('roles');
+        Route::get('/permissions', [AdminController::class, 'permissions'])->name('permissions');
+        Route::post('/users/assign-role', [AdminController::class, 'assignRole'])->name('users.assignRole');
+        Route::post('/users/remove-role', [AdminController::class, 'removeRole'])->name('users.removeRole');
+        Route::get('/users/create', [AdminController::class, 'createUser'])->name('users.create');
+        Route::post('/users', [AdminController::class, 'storeUser'])->name('users.store');
+        Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
+        Route::put('/users/{user}', [AdminController::class, 'updateUser'])->name('users.update');
+        Route::delete('/users/{user}', [AdminController::class, 'destroyUser'])->name('users.destroy');
+        Route::post('/roles/give-permission', [AdminController::class, 'givePermission'])->name('roles.givePermission');
+        Route::post('/roles/revoke-permission', [AdminController::class, 'revokePermission'])->name('roles.revokePermission');
+        Route::post('/roles/sync-permissions', [AdminController::class, 'syncPermissions'])->name('roles.syncPermissions');
+        Route::get('/roles/create', [AdminController::class, 'createRole'])->name('roles.create');
+        Route::post('/roles', [AdminController::class, 'storeRole'])->name('roles.store');
+        Route::get('/roles/{role}/edit', [AdminController::class, 'editRole'])->name('roles.edit');
+        Route::put('/roles/{role}', [AdminController::class, 'updateRole'])->name('roles.update');
+        Route::delete('/roles/{role}', [AdminController::class, 'destroyRole'])->name('roles.destroy');
 
-        Route::get('/settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
-        Route::put('/settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::put('/settings', [SettingController::class, 'update'])->name('settings.update');
 
-        Route::resource('/students', App\Http\Controllers\StudentController::class);
-        Route::post('/students/{student}/toggle-active', [App\Http\Controllers\StudentController::class, 'toggleActiveStatus'])->name('students.toggleActiveStatus');
-        Route::post('/students/bulk-update-status', [App\Http\Controllers\StudentController::class, 'bulkUpdateStatus'])->name('students.bulkUpdateStatus');
-        Route::post('/students/{student}/verify-payment', [App\Http\Controllers\StudentController::class, 'verifyPayment'])->name('students.verifyPayment');
-        Route::post('/students/{student}/reject-payment', [App\Http\Controllers\StudentController::class, 'rejectPayment'])->name('students.rejectPayment');
-        Route::post('/students/{student}/update-due-payment', [App\Http\Controllers\StudentController::class, 'updateDuePayment'])->name('students.updateDuePayment');
-        Route::post('/students/{student}/mark-registration-complete', [App\Http\Controllers\StudentController::class, 'markRegistrationComplete'])->name('students.markRegistrationComplete');
-        Route::post('/students/bulk-mark-registration-complete', [App\Http\Controllers\StudentController::class, 'bulkMarkRegistrationComplete'])->name('students.bulkMarkRegistrationComplete');
+        Route::resource('/students', StudentController::class);
+        Route::post('/students/{student}/toggle-active', [StudentController::class, 'toggleActiveStatus'])->name('students.toggleActiveStatus');
+        Route::post('/students/bulk-update-status', [StudentController::class, 'bulkUpdateStatus'])->name('students.bulkUpdateStatus');
+        Route::post('/students/{student}/verify-payment', [StudentController::class, 'verifyPayment'])->name('students.verifyPayment');
+        Route::post('/students/{student}/reject-payment', [StudentController::class, 'rejectPayment'])->name('students.rejectPayment');
+        Route::post('/students/{student}/update-due-payment', [StudentController::class, 'updateDuePayment'])->name('students.updateDuePayment');
+        Route::post('/students/{student}/mark-registration-complete', [StudentController::class, 'markRegistrationComplete'])->name('students.markRegistrationComplete');
+        Route::post('/students/bulk-mark-registration-complete', [StudentController::class, 'bulkMarkRegistrationComplete'])->name('students.bulkMarkRegistrationComplete');
         Route::resource('/courses', App\Http\Controllers\CourseController::class);
-        Route::resource('/batches', App\Http\Controllers\BatchController::class);
+        Route::resource('/batches', BatchController::class);
 
         // Accounts Module Routes
         Route::resource('/ledgers', App\Http\Controllers\LedgerController::class);
@@ -97,12 +100,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/reports/incomes/export', [App\Http\Controllers\ReportController::class, 'exportLedgerWiseIncomes'])->name('reports.exportLedgerWiseIncomes');
         Route::get('/reports/profit-loss/export', [App\Http\Controllers\ReportController::class, 'exportProfitLoss'])->name('reports.exportProfitLoss');
 
+        // Student Admission Report
+        Route::get('/reports/student-admission', [App\Http\Controllers\StudentAdmissionReportController::class, 'index'])->name('reports.studentAdmission');
+
     });
 });
 
 require __DIR__ . '/auth.php';
 
-Route::post('/register-student', [App\Http\Controllers\StudentController::class, 'store'])->name('student.register');
+Route::post('/register-student', [StudentController::class, 'store'])->name('student.register');
 
 Route::get('/registration', function () {
     return Inertia::render('Registration');
@@ -136,7 +142,7 @@ Route::get('/registration', function () {
         });
 
         Route::get('/employees', [App\Http\Controllers\EmployeeController::class, 'getAllEmployees']);
-        Route::get('/students', [App\Http\Controllers\StudentController::class, 'getAllStudents']);
+        Route::get('/students', [StudentController::class, 'getAllStudents']);
         Route::get('/reports/attendance/daily', [App\Http\Controllers\AttendanceReportController::class, 'getDailyAttendance']);
         Route::get('/reports/attendance/daily/export', [App\Http\Controllers\AttendanceReportController::class, 'exportDailyAttendance']);
         Route::get('/reports/attendance/monthly', [App\Http\Controllers\AttendanceReportController::class, 'getMonthlyAttendance']);
@@ -152,6 +158,15 @@ Route::get('/registration', function () {
         Route::get('/reports/student-attendance/monthly/export', [App\Http\Controllers\StudentAttendanceReportController::class, 'exportMonthlyAttendance']);
         Route::get('/reports/student-attendance/continuous', [App\Http\Controllers\StudentAttendanceReportController::class, 'getContinuousAttendance']);
         Route::get('/reports/student-attendance/continuous/export', [App\Http\Controllers\StudentAttendanceReportController::class, 'exportContinuousAttendance']);
+
+        // Student Admission Report API routes
+        Route::get('/reports/student-admission/daily', [App\Http\Controllers\StudentAdmissionReportController::class, 'getDailyReport'])->name('api.reports.student-admission.daily');
+        Route::get('/reports/student-admission/monthly', [App\Http\Controllers\StudentAdmissionReportController::class, 'getMonthlyReport'])->name('api.reports.student-admission.monthly');
+        Route::get('/reports/student-admission/continuous', [App\Http\Controllers\StudentAdmissionReportController::class, 'getContinuousReport']);
+        Route::get('/reports/student-admission/daily/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportDailyReport']);
+        Route::get('/reports/student-admission/monthly/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportMonthlyReport']);
+        Route::get('/reports/student-admission/continuous/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportContinuousReport']);
+        Route::get('/students/all', [App\Http\Controllers\StudentAdmissionReportController::class, 'getAllStudents'])->name('api.students.all');
     });
 
 

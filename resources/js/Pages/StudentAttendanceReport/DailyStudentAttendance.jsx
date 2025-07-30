@@ -76,25 +76,25 @@ export default function DailyStudentAttendance({ selectedStudents }) {
                 <div className="flex space-x-2">
                     <button
                         onClick={() => handleFilterChange('all')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
                     >
                         All Attendance
                     </button>
                     <button
                         onClick={() => handleFilterChange('present')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'present' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'present' ? 'bg-green-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
                     >
                         Present Only
                     </button>
                     <button
                         onClick={() => handleFilterChange('absent')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'absent' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'absent' ? 'bg-red-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
                     >
                         Absent Only
                     </button>
                     <button
                         onClick={() => handleFilterChange('leave')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'leave' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'leave' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
                     >
                         On Leave
                     </button>

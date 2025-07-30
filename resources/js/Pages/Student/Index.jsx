@@ -300,14 +300,14 @@ export default function StudentIndex({ auth, students, courses, batches, payment
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${student.payment_status === 'verified' ? 'bg-green-100 text-green-800' :
                                                                 student.payment_status === 'rejected' ? 'bg-red-100 text-red-800' :
-                                                                    'bg-gray-100 text-gray-800'
+                                                                    'bg-gray-100 text-white'
                                                             }`}>
                                                             {student.payment_status}
                                                         </span>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${student.registration_status === 'completed' ? 'bg-green-100 text-green-800' :
-                                                                'bg-gray-100 text-gray-800'
+                                                                'bg-gray-100 text-white'
                                                             }`}>
                                                             {student.registration_status}
                                                         </span>
