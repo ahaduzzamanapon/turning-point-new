@@ -163,7 +163,7 @@ Route::get('/registration', function () {
         Route::get('/reports/student-admission/daily', [App\Http\Controllers\StudentAdmissionReportController::class, 'getDailyReport'])->name('api.reports.student-admission.daily');
         Route::get('/reports/student-admission/monthly', [App\Http\Controllers\StudentAdmissionReportController::class, 'getMonthlyReport'])->name('api.reports.student-admission.monthly');
         Route::get('/reports/student-admission/continuous', [App\Http\Controllers\StudentAdmissionReportController::class, 'getContinuousReport']);
-        Route::get('/reports/student-admission/daily/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportDailyReport']);
+        Route::get('/reports/student-admission/daily/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportDailyReport'])->name('api.reports.student-admission.daily.export');
         Route::get('/reports/student-admission/monthly/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportMonthlyReport']);
         Route::get('/reports/student-admission/continuous/export/{type}', [App\Http\Controllers\StudentAdmissionReportController::class, 'exportContinuousReport']);
         Route::get('/students/all', [App\Http\Controllers\StudentAdmissionReportController::class, 'getAllStudents'])->name('api.students.all');

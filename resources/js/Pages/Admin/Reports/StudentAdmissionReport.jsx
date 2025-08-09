@@ -185,22 +185,22 @@ export default function StudentAdmissionReport({ auth }) {
     const dailyColumns = [
         { header: 'Student Name', accessor: 'candidate_full_name' },
         { header: 'Mobile Number', accessor: 'mobile_number' },
-        { header: 'Admission Date', accessor: 'created_at' },
+        { header: 'Admission Date', render: (row) => row.created_at ? new Date(row.created_at).toLocaleDateString() : 'N/A' },
         { header: 'Program Name', render: (row) => row.course?.name || 'N/A' },
         { header: 'Admission Status', render: (row) => {
             let colorClass = '';
             let icon = null;
-            if (row.admission_status === 'confirmed') {
+            if (row.registration_status === 'confirmed') {
                 colorClass = 'text-green-600';
                 icon = <CheckCircleIcon className="h-5 w-5 inline-block mr-1" />;
-            } else if (row.admission_status === 'pending') {
+            } else if (row.registration_status === 'pending') {
                 colorClass = 'text-yellow-600';
                 icon = <ClockIcon className="h-5 w-5 inline-block mr-1" />;
-            } else if (row.admission_status === 'cancelled') {
+            } else if (row.registration_status === 'cancelled') {
                 colorClass = 'text-red-600';
                 icon = <XCircleIcon className="h-5 w-5 inline-block mr-1" />;
             }
-            return <span className={colorClass}>{icon}{row.admission_status}</span>;
+            return <span className={colorClass}>{icon}{row.registration_status}</span>;
         }},
     ];
 
@@ -212,22 +212,22 @@ export default function StudentAdmissionReport({ auth }) {
     const continuousColumns = [
         { header: 'Student Name', accessor: 'candidate_full_name' },
         { header: 'Mobile Number', accessor: 'mobile_number' },
-        { header: 'Admission Date', accessor: 'created_at' },
+        { header: 'Admission Date', render: (row) => row.created_at ? new Date(row.created_at).toLocaleDateString() : 'N/A' },
         { header: 'Program Name', render: (row) => row.course?.name || 'N/A' },
         { header: 'Admission Status', render: (row) => {
             let colorClass = '';
             let icon = null;
-            if (row.admission_status === 'confirmed') {
+            if (row.registration_status === 'confirmed') {
                 colorClass = 'text-green-600';
                 icon = <CheckCircleIcon className="h-5 w-5 inline-block mr-1" />;
-            } else if (row.admission_status === 'pending') {
+            } else if (row.registration_status === 'pending') {
                 colorClass = 'text-yellow-600';
                 icon = <ClockIcon className="h-5 w-5 inline-block mr-1" />;
-            } else if (row.admission_status === 'cancelled') {
+            } else if (row.registration_status === 'cancelled') {
                 colorClass = 'text-red-600';
                 icon = <XCircleIcon className="h-5 w-5 inline-block mr-1" />;
             }
-            return <span className={colorClass}>{icon}{row.admission_status}</span>;
+            return <span className={colorClass}>{icon}{row.registration_status}</span>;
         }},
     ];
 
