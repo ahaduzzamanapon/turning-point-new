@@ -111,7 +111,7 @@ export default function ContinuousAttendance({ selectedEmployees }) {
                             <tr>
                                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Employee Name</th>
                                 {allDates.map(date => (
-                                    <th key={date.toISOString()} scope="col" className="px-2 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    <th key={date.toISOString()} scope="col" className="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         {date.getDate()}<br/>{date.toLocaleString('default', { month: 'short' })}
                                     </th>
                                 ))}
@@ -120,7 +120,7 @@ export default function ContinuousAttendance({ selectedEmployees }) {
                         <tbody className="bg-white divide-y divide-gray-200">
                             {continuousAttendanceData.map((employeeRecord) => (
                                 <tr key={employeeRecord.employee_id}>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">{employeeRecord.employee_name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{employeeRecord.employee_name}</td>
                                     {allDates.map(date => {
                                         const formattedDate = date.toISOString().split('T')[0];
                                         const dailyRecord = employeeRecord.attendance_records.find(rec => rec.date === formattedDate);

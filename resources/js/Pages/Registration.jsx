@@ -241,7 +241,7 @@ export default function Registration() {
                             >
                                 <option value="" className="bg-gray-800 text-white">ব্যাচ নির্বাচন করুন</option>
                                 {batches.map((batch) => (
-                                    <option key={batch.id} value={batch.id} className="bg-white text-gray-900">{batch.name}</option>
+                                    <option key={batch.id} value={batch.id} className="bg-gray-800 text-white">{batch.name}</option>
                                 ))}
                             </select>
                             {errors.bach_interested_id && <div className="text-maroon text-sm mt-1">{errors.bach_interested_id}</div>}
@@ -269,9 +269,9 @@ export default function Registration() {
                                 className="mt-1 block w-full rounded-md border-gray-300 bg-white/20 backdrop-blur-sm border border-white/10 focus:border-maroon focus:ring focus:ring-maroon/50 p-2 text-white" // Transparent input
                                 required
                             >
-                                <option value="" className="bg-white text-gray-900">Select a Representative</option>
+                                <option value="" className="bg-gray-800 text-white">Select a Representative</option>
                                 {representatives.map((rep) => (
-                                    <option key={rep.id} value={rep.id} className="bg-white text-gray-900">{rep.name} - {rep.number}</option>
+                                    <option key={rep.id} value={rep.id} className="bg-gray-800 text-white">{rep.name} - {rep.number}</option>
                                 ))}
                             </select>
                             {errors.representative_id && <div className="text-maroon text-sm mt-1">{errors.representative_id}</div>}
@@ -281,10 +281,10 @@ export default function Registration() {
                             <input
                                 type="checkbox"
                                 id="agreement"
-                                className="h-4 w-4 text-maroon focus:ring-maroon border-gray-300 rounded bg-white" // Transparent checkbox
+                                className="h-4 w-4 text-maroon focus:ring-maroon border-gray-300 rounded bg-white/20" // Transparent checkbox
                                 required
                             />
-                            <label htmlFor="agreement" className="ml-2 block text-sm text-gray-700">
+                            <label htmlFor="agreement" className="ml-2 block text-sm text-white">
                                 আপনি এই শর্ত মেনে ভর্তি হয়েছেন যে, কোন অবস্থাতেই ভর্তি বাতিল করা যাবে না এবং টাকা ফেরতযোগ্য নয়,ধন্যবাদ।*
                             </label>
                         </div>

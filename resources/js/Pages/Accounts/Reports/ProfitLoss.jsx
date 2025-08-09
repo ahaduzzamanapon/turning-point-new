@@ -33,7 +33,7 @@ export default function ProfitLoss({ auth, totalExpenses, totalIncomes, profitLo
                                     id="start_date"
                                     value={data.start_date}
                                     onChange={(e) => setData('start_date', e.target.value)}
-                                    className="mt-1 block rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 />
                             </div>
                             <div>
@@ -43,7 +43,7 @@ export default function ProfitLoss({ auth, totalExpenses, totalIncomes, profitLo
                                     id="end_date"
                                     value={data.end_date}
                                     onChange={(e) => setData('end_date', e.target.value)}
-                                    className="mt-1 block rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 />
                             </div>
                             <div className="flex items-end">

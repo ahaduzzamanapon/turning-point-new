@@ -63,7 +63,7 @@ export default function EmployeeSelector({ onSelectEmployees }) {
             <div className="selected-employees-tags">
                 {selectedOptions.length > 0 && (
                     <div className="mt-2">
-                        <p className="text-sm text-gray-800">Selected:</p>
+                        <p className="text-sm text-gray-600">Selected:</p>
                         <div className="flex flex-wrap gap-2 mt-1">
                             {selectedOptions.map(option => (
                                 <span key={option.value} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">

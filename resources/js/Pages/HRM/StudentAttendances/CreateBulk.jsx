@@ -75,7 +75,7 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
                                                     <select
                                                         value={student.status}
                                                         onChange={(e) => handleStatusChange(student.id, e.target.value)}
-                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                                     >
                                                         <option value="present">Present</option>
                                                         <option value="absent">Absent</option>
@@ -87,7 +87,7 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
                                                         type="time"
                                                         value={student.check_in}
                                                         onChange={(e) => handleCheckInChange(student.id, e.target.value)}
-                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                                     />
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
@@ -95,7 +95,7 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
                                                         type="time"
                                                         value={student.check_out}
                                                         onChange={(e) => handleCheckOutChange(student.id, e.target.value)}
-                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                                     />
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
@@ -103,7 +103,7 @@ export default function StudentAttendanceCreateBulk({ auth, students, date }) {
                                                         type="text"
                                                         value={student.notes}
                                                         onChange={(e) => handleNotesChange(student.id, e.target.value)}
-                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                                     />
                                                 </td>
                                             </tr>

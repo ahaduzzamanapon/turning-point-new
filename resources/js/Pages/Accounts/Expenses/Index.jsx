@@ -40,9 +40,9 @@ export default function ExpenseIndex({ auth, expenses }) {
                                         expenses.map((expense) => (
                                             <tr key={expense.id}>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{new Date(expense.date).toLocaleDateString()}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.ledger.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.amount}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.description}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{expense.ledger.name}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{expense.amount}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{expense.description}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     <Link href={route('admin.expenses.edit', expense.id)} className="text-indigo-600 hover:text-indigo-900 mr-3">Edit</Link>
                                                     <button onClick={() => handleDelete(expense.id)} className="text-red-600 hover:text-red-900">Delete</button>
@@ -51,7 +51,7 @@ export default function ExpenseIndex({ auth, expenses }) {
                                         ))
                                     ) : (
                                         <tr>
-                                            <td colSpan="5" className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-center">No expenses found.</td>
+                                            <td colSpan="5" className="px-6 py-4 whitespace-nowrap text-sm text-white text-center">No expenses found.</td>
                                         </tr>
                                     )}
                                 </tbody>

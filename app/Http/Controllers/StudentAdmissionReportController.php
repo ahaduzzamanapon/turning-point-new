@@ -30,11 +30,13 @@ class StudentAdmissionReportController extends Controller
         ]);
 
         $date = $request->input('date');
+        $fromDate = date('Y-m-d 00:00:00', strtotime($date ));
+        $toDate = date('Y-m-d 23:59:59', strtotime($date ));
         $status = $request->input('status', 'all');
         $student_ids = $request->input('student_ids');
 
         $query = Student::query()
-            ->whereDate('admission_date', $date);
+            ->whereBetween('created_at', [$fromDate, $toDate]);
 
         if ($status !== 'all') {
             $query->where('admission_status', $status);

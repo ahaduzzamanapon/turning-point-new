@@ -38,8 +38,8 @@ export default function Index({ data }) {
                                 <tbody className="text-white bg-black/10 backdrop-blur-xl border-b-1 border-[#8b2022]">
                                     {data.map((item) => (
                                         <tr key={item.id}>
-                                            <td className="px-6 py-4 whitespace-nowrap text-gray-700">{item.name}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-gray-700">{item.number}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">{item.number}</td>
                                             {(auth.user.permissions.includes('paymentmethods_edit') || auth.user.permissions.includes('paymentmethods_delete')) && (
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     {auth.user.permissions.includes('paymentmethods_edit') && (

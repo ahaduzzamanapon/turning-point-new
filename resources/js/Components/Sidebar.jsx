@@ -27,8 +27,8 @@ const NavLink = ({ href, active, children, icon: Icon = () => null }) => (
         href={href}
         className={`flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 group ${active
             ? 'bg-maroon/30 text-white shadow-lg animate-glow' // Maroon accent for active
-            : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-            } border border-gray-200`} // Glassmorphism border
+            : 'text-gray-300 hover:bg-white/5 hover:text-white'
+            } border border-white/10 backdrop-blur-sm`} // Glassmorphism border
     >
         {Icon && <Icon className="mr-3 flex-shrink-0 h-6 w-6 text-gray-300 group-hover:text-white" />}
         {children}
@@ -42,10 +42,10 @@ const DropdownLink = ({ title, children, icon: Icon = () => null, active }) => {
         <div>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium text-left text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-all duration-300 group border border-gray-200"
+                className="flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium text-left text-gray-300 hover:bg-white/5 hover:text-white rounded-lg transition-all duration-300 group border border-white/10 backdrop-blur-sm"
             >
                 <span className="flex items-center">
-                    <Icon className="mr-3 flex-shrink-0 h-6 w-6 text-gray-700 group-hover:text-gray-900" />
+                    <Icon className="mr-3 flex-shrink-0 h-6 w-6 text-gray-300 group-hover:text-white" />
                     {title}
                 </span>
                 <ChevronDownIcon
@@ -86,11 +86,11 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     aria-modal="true"
                 >
                     <div
-                        className="fixed inset-0 bg-gray-200 bg-opacity-75 transition-opacity"
+                        className="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity"
                         aria-hidden="true"
                         onClick={() => setSidebarOpen(false)} // Close on backdrop click
                     ></div>
-                    <div className="relative flex-1 flex flex-col max-w-xs w-full  border-r border-gray-200 pt-5 pb-4 shadow-xl">
+                    <div className="relative flex-1 flex flex-col max-w-xs w-full  backdrop-blur-xl border-r border-white/10 pt-5 pb-4 shadow-xl">
                         <div className="absolute top-0 right-0 -mr-12 pt-2">
                             <button
                                 type="button"
@@ -185,14 +185,14 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         </div>
                         <div className="border-t border-white/10 p-4">
                             <div className="flex items-center">
-                                <img className="h-10 w-10 rounded-full border border-gray-200" src={`https://ui-avatars.com/api/?name=${user.name}&background=random`} alt="User Avatar" />
+                                <img className="h-10 w-10 rounded-full border border-white/20" src={`https://ui-avatars.com/api/?name=${user.name}&background=random`} alt="User Avatar" />
                                 <div className="ml-3">
-                                    <p className="text-sm font-medium text-gray-900">{user.name}</p>
+                                    <p className="text-sm font-medium text-white">{user.name}</p>
                                     <Link href={route('profile.edit')} className="text-xs text-gray-400 hover:text-white">
                                         View Profile
                                     </Link>
                                 </div>
-                                <Link href={route('logout')} method="post" as="button" className="ml-auto text-gray-700 hover:text-gray-900">
+                                <Link href={route('logout')} method="post" as="button" className="ml-auto text-gray-400 hover:text-white">
                                     <ArrowRightStartOnRectangleIcon className="h-6 w-6" />
                                 </Link>
                             </div>
@@ -203,7 +203,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
             {/* Static sidebar for desktop */}
             <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-                <div className="flex flex-col flex-grow  border-r border-gray-200 pt-[34px] overflow-y-auto shadow-lg">
+                <div className="flex flex-col flex-grow  backdrop-blur-xl border-r border-white/10 pt-[34px] overflow-y-auto shadow-lg">
                     <div className="flex items-center flex-shrink-0 px-4">
                         <Link href="/" className="flex items-center space-x-3">
                             <img className="h-[65px] w-[500px]" src="/images/logo.png" alt="Logo" />
@@ -289,12 +289,12 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         <div className="flex items-center">
                             <img className="h-10 w-10 rounded-full border border-white/20" src={`https://ui-avatars.com/api/?name=${user.name}&background=random`} alt="User Avatar" />
                             <div className="ml-3">
-                                <p className="text-sm font-medium text-gray-900">{user.name}</p>
+                                <p className="text-sm font-medium text-white">{user.name}</p>
                                 <Link href={route('profile.edit')} className="text-xs text-gray-400 hover:text-white">
                                     View Profile
                                 </Link>
                             </div>
-                            <Link href={route('logout')} method="post" as="button" className="ml-auto text-gray-700 hover:text-gray-900">
+                            <Link href={route('logout')} method="post" as="button" className="ml-auto text-gray-400 hover:text-white">
                                 <ArrowRightStartOnRectangleIcon className="h-6 w-6" />
                             </Link>
                         </div>

@@ -70,7 +70,7 @@ export default function CourseIndex({ auth, data }) {
                                             ))
                                         ) : (
                                             <tr>
-                                                <td colSpan="6" className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-center">No courses found.</td>
+                                                <td colSpan="6" className="px-6 py-4 whitespace-nowrap text-sm text-white text-center">No courses found.</td>
                                             </tr>
                                         )}
                                     </tbody>

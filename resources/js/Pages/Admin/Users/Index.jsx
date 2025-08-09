@@ -58,7 +58,7 @@ export default function UserManagement({ auth, users, roles }) {
                                                 ))}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <select onChange={(e) => assignRole(user.id, e.target.value)} className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200">
+                                                <select onChange={(e) => assignRole(user.id, e.target.value)} className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10">
                                                     <option value="">Assign Role</option>
                                                     {roles.map((role) => (
                                                         <option key={role.id} value={role.id}>{role.name}</option>

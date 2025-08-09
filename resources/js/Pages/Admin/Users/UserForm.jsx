@@ -21,7 +21,7 @@ export default function UserForm({ data, setData, errors, roles }) {
                     id="name"
                     value={data.name}
                     onChange={(e) => setData('name', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
+                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
                 />
                 {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}
             </div>
@@ -33,7 +33,7 @@ export default function UserForm({ data, setData, errors, roles }) {
                     id="email"
                     value={data.email}
                     onChange={(e) => setData('email', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
+                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
                 />
                 {errors.email && <div className="text-red-500 text-sm mt-1">{errors.email}</div>}
             </div>
@@ -45,7 +45,7 @@ export default function UserForm({ data, setData, errors, roles }) {
                     id="password"
                     value={data.password}
                     onChange={(e) => setData('password', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
+                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
                 />
                 {errors.password && <div className="text-red-500 text-sm mt-1">{errors.password}</div>}
             </div>
@@ -57,7 +57,7 @@ export default function UserForm({ data, setData, errors, roles }) {
                     id="password_confirmation"
                     value={data.password_confirmation}
                     onChange={(e) => setData('password_confirmation', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
+                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
                 />
                 {errors.password_confirmation && <div className="text-red-500 text-sm mt-1">{errors.password_confirmation}</div>}
             </div>
@@ -69,7 +69,7 @@ export default function UserForm({ data, setData, errors, roles }) {
                     multiple
                     value={data.roles}
                     onChange={handleRoleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 h-32"
+                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 h-32"
                 >
                     {roles.map(role => (
                         <option key={role.id} value={role.id}>{role.name}</option>

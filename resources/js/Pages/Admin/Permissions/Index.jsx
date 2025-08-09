@@ -25,8 +25,8 @@ export default function PermissionManagement({ auth, permissions }) {
                                 <tbody className="text-white bg-black/10 backdrop-blur-xl border-b-1 border-[#8b2022]">
                                     {permissions.map((permission) => (
                                         <tr key={permission.id}>
-                                            <td className="px-6 py-4 whitespace-nowrap text-gray-700">{permission.name}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-gray-700">{permission.guard_name}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">{permission.name}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">{permission.guard_name}</td>
                                         </tr>
                                     ))}
                                 </tbody>

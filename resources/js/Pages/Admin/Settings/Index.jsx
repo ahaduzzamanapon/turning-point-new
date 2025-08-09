@@ -62,7 +62,7 @@ export default function Settings({ auth, settings }) {
                                         id="app_name"
                                         value={data.app_name}
                                         onChange={(e) => setData('app_name', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
+                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
                                     />
                                 </div>
 
@@ -73,7 +73,7 @@ export default function Settings({ auth, settings }) {
                                         id="sidebar_color"
                                         value={data.sidebar_color}
                                         onChange={(e) => setData('sidebar_color', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 h-10"
+                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 h-10"
                                     />
                                 </div>
 
@@ -106,7 +106,7 @@ export default function Settings({ auth, settings }) {
                                         id="admin_header_text_color"
                                         value={data.admin_header_text_color}
                                         onChange={(e) => setData('admin_header_text_color', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 h-10"
+                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 h-10"
                                     />
                                 </div>
 
@@ -116,7 +116,7 @@ export default function Settings({ auth, settings }) {
                                         id="font_family"
                                         value={data.font_family}
                                         onChange={(e) => setData('font_family', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
+                                        className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
                                     >
                                         {fontFamilies.map(font => (
                                             <option key={font} value={font}>{font}</option>
@@ -130,11 +130,11 @@ export default function Settings({ auth, settings }) {
                                         type="file"
                                         id="logo"
                                         onChange={(e) => setData('logo', e.target.files[0])}
-                                                                                className="mt-1 block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                        className="mt-1 block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                                     />
                                     {settings.logo && (
                                         <div className="mt-2">
-                                            <p className="text-sm text-gray-700">Current Logo:</p>
+                                            <p className="text-sm text-gray-600">Current Logo:</p>
                                             <img src={settings.logo} alt="Current Logo" className="mt-1 h-20 w-auto object-contain" />
                                         </div>
                                     )}

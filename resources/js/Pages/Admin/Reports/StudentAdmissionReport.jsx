@@ -172,14 +172,20 @@ export default function StudentAdmissionReport({ auth }) {
     };
 
     const filteredStudents = allStudents.filter(student =>
-        student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        student.mobile_number.includes(searchTerm)
+        student.name?.toLowerCase().includes(searchTermLower) ||
+        student.phone?.toLowerCase().includes(searchTermLower) ||
+        student.email?.toLowerCase().includes(searchTermLower) ||
+        student.address?.toLowerCase().includes(searchTermLower) ||
+        student.course?.name?.toLowerCase().includes(searchTermLower) ||
+        student.batch?.name?.toLowerCase().includes(searchTermLower) ||
+        student.representative?.name?.toLowerCase().includes(searchTermLower) ||
+        student.payment_method?.name?.toLowerCase().includes(searchTermLower)
     );
 
     const dailyColumns = [
-        { header: 'Student Name', accessor: 'name' },
+        { header: 'Student Name', accessor: 'candidate_full_name' },
         { header: 'Mobile Number', accessor: 'mobile_number' },
-        { header: 'Admission Date', accessor: 'admission_date' },
+        { header: 'Admission Date', accessor: 'created_at' },
         { header: 'Program Name', render: (row) => row.course?.name || 'N/A' },
         { header: 'Admission Status', render: (row) => {
             let colorClass = '';
@@ -204,9 +210,9 @@ export default function StudentAdmissionReport({ auth }) {
     ];
 
     const continuousColumns = [
-        { header: 'Student Name', accessor: 'name' },
+        { header: 'Student Name', accessor: 'candidate_full_name' },
         { header: 'Mobile Number', accessor: 'mobile_number' },
-        { header: 'Admission Date', accessor: 'admission_date' },
+        { header: 'Admission Date', accessor: 'created_at' },
         { header: 'Program Name', render: (row) => row.course?.name || 'N/A' },
         { header: 'Admission Status', render: (row) => {
             let colorClass = '';

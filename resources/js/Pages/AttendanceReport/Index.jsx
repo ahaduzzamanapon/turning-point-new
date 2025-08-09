@@ -17,7 +17,7 @@ export default function Index({ auth }) {
     return (
         <AuthenticatedLayout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-900 leading-tight">Attendance Report</h2>}
+            header={<h2 className="font-semibold text-xl text-white leading-tight">Attendance Report</h2>}
         >
             <Head title="Attendance Report" />
 
@@ -57,7 +57,15 @@ export default function Index({ auth }) {
                                             </li>
                                             <li className="mr-2" role="presentation">
                                                 <button
-                                                    className={`inline-block p-4 border-b-2 rounded-t-lg ${selectedTab === 'continuous' ? 'text-blue-600 border-blue-600' : 'text-gray-700 hover:text-gray-900 hover:border-gray-400'}`}
+                                                    className={`inline-block p-4 border-b-2 rounded-t-lg ${selectedTab === 'continuous' ? 'text-blue-600 border-blue-600' : 'hover:text-gray-600 hover:border-gray-300'}`}
+                                                    onClick={() => setSelectedTab('continuous')}
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls="continuous"
+                                                    aria-selected={selectedTab === 'continuous'}
+                                                >
+                                                    Continuous
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>

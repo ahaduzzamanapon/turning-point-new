@@ -24,7 +24,7 @@ export default function EditRole({ auth, role }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
                         <div className="p-6 text-white">
-                            <h3 className="text-lg font-medium text-gray-900 mb-4">Edit Role: {role.name}</h3>
+                            <h3 className="text-lg font-medium text-white mb-4">Edit Role: {role.name}</h3>
                             <form onSubmit={handleSubmit}>
                                 <RoleForm data={data} setData={setData} errors={errors} />
                                 <div className="mt-4">

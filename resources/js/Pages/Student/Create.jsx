@@ -64,7 +64,7 @@ export default function StudentCreate({ auth }) {
             <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
-                        <div className="bg-white shadow-lg rounded-lg border border-gray-200 p-6 text-gray-900">
+                        <div className="p-6 text-white">
                             <form onSubmit={handleSubmit} className="space-y-6">
 
                                 <div>
@@ -149,7 +149,7 @@ export default function StudentCreate({ auth }) {
                                                 className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
                                                 required
                                             />
-                                            <label htmlFor="bkash" className="className="className="ml-3 block text-sm font-medium text-gray-700""">Bkash (Merchant) (Payment) : 01896 22 42 00</label>
+                                            <label htmlFor="bkash" className="ml-3 block text-sm font-medium text-white">Bkash (Merchant) (Payment) : 01896 22 42 00</label>
                                         </div>
                                         <div className="flex items-center">
                                             <input
@@ -160,7 +160,7 @@ export default function StudentCreate({ auth }) {
                                                 onChange={(e) => setData('payment_method', e.target.value)}
                                                 className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
                                             />
-                                            <label htmlFor="nagad" className="className="className="ml-3 block text-sm font-medium text-gray-700""">Nagad (Merchant) (Payment) : 01896 22 42 01</label>
+                                            <label htmlFor="nagad" className="ml-3 block text-sm font-medium text-white">Nagad (Merchant) (Payment) : 01896 22 42 01</label>
                                         </div>
                                         <div className="flex items-center">
                                             <input
@@ -171,7 +171,7 @@ export default function StudentCreate({ auth }) {
                                                 onChange={(e) => setData('payment_method', e.target.value)}
                                                 className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
                                             />
-                                            <label htmlFor="cash_in_hand" className="className="className="ml-3 block text-sm font-medium text-gray-700""">Cash in Hand (Office)</label>
+                                            <label htmlFor="cash_in_hand" className="ml-3 block text-sm font-medium text-white">Cash in Hand (Office)</label>
                                         </div>
                                         <div className="flex items-center">
                                             <input
@@ -182,7 +182,7 @@ export default function StudentCreate({ auth }) {
                                                 onChange={(e) => setData('payment_method', e.target.value)}
                                                 className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300"
                                             />
-                                            <label htmlFor="rocket" className="className="className="ml-3 block text-sm font-medium text-gray-700""">Rocket (Send Money) : 018304502805</label>
+                                            <label htmlFor="rocket" className="ml-3 block text-sm font-medium text-white">Rocket (Send Money) : 018304502805</label>
                                         </div>
                                     </div>
                                     {errors.payment_method && <div className="text-red-500 text-sm mt-1">{errors.payment_method}</div>}
@@ -283,7 +283,7 @@ export default function StudentCreate({ auth }) {
                                         className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
                                         required
                                     />
-                                    <label htmlFor="agreement" className="ml-2 block text-sm text-gray-700">
+                                    <label htmlFor="agreement" className="ml-2 block text-sm text-white">
                                         আপনি এই শর্ত মেনে ভর্তি হয়েছেন যে, কোন অবস্থাতেই ভর্তি বাতিল করা যাবে না এবং টাকা ফেরতযোগ্য নয়,ধন্যবাদ।*
                                     </label>
                                 </div>
@@ -291,7 +291,7 @@ export default function StudentCreate({ auth }) {
                                 <div className="flex items-center justify-end mt-4">
                                     <button
                                         type="submit"
-                                        className="inline-flex items-center px-6 py-3 bg-maroon border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-maroon/80 focus:bg-maroon/80 active:bg-maroon/90 focus:outline-none focus:ring-2 focus:ring-maroon focus:ring-offset-2 transition ease-in-out duration-150"
+                                        className="inline-flex items-center px-6 py-3 bg-red-600 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150"
                                         disabled={processing}
                                     >
                                         Register Now

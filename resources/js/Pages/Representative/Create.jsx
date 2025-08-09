@@ -30,7 +30,7 @@ export default function Create() {
                             Create
                         </button>
                     )}
-                    <Link href={route('representatives.index')} className="ml-4 text-gray-700">Cancel</Link>
+                    <Link href={route('representatives.index')} className="ml-4 text-gray-600">Cancel</Link>
                 </div>
             </form>
              </AuthenticatedLayout>

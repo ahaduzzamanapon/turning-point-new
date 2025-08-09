@@ -46,7 +46,7 @@ export default function LedgerIndex({ auth, ledgers }) {
                                         ))
                                     ) : (
                                         <tr>
-                                            <td colSpan="4" className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-center">No ledgers found.</td>
+                                            <td colSpan="4" className="px-6 py-4 whitespace-nowrap text-sm text-white text-center">No ledgers found.</td>
                                         </tr>
                                     )}
                                 </tbody>

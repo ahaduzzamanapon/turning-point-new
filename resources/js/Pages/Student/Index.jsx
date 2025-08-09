@@ -300,14 +300,14 @@ export default function StudentIndex({ auth, students, courses, batches, payment
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${student.payment_status === 'verified' ? 'bg-green-100 text-green-800' :
                                                                 student.payment_status === 'rejected' ? 'bg-red-100 text-red-800' :
-                                                                    '                                                                                                                                                                                                                                                                                                                                '                                                                'bg-gray-100 text-gray-900'''
+                                                                    'bg-gray-100 text-white'
                                                             }`}>
                                                             {student.payment_status}
                                                         </span>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${student.registration_status === 'completed' ? 'bg-green-100 text-green-800' :
-                                                                '                                                                                                                                                                                                                                                                                                                                '                                                                'bg-gray-100 text-gray-900'''
+                                                                'bg-gray-100 text-white'
                                                             }`}>
                                                             {student.registration_status}
                                                         </span>
@@ -340,7 +340,7 @@ export default function StudentIndex({ auth, students, courses, batches, payment
                                             ))
                                         ) : (
                                             <tr>
-                                                <td colSpan="10" className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-center">No students found.</td>
+                                                <td colSpan="10" className="px-6 py-4 whitespace-nowrap text-sm text-white text-center">No students found.</td>
                                             </tr>
                                         )}
                                     </tbody>
@@ -403,7 +403,7 @@ export default function StudentIndex({ auth, students, courses, batches, payment
                                     id="dueAmount"
                                     value={dueAmountInput}
                                     onChange={(e) => setDueAmountInput(e.target.value)}
-                                                                                                                                                                                                                                                                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                     step="0.01"
                                     min="0"
                                 />

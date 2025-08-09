@@ -23,7 +23,7 @@ export default function ExpenseCreate({ auth, ledgers }) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white shadow-lg rounded-lg border border-gray-200 p-6 text-gray-900">
+                    <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 text-white">
                         <h3 className="text-2xl font-bold text-red-700 mb-6">Add New Expense</h3>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
@@ -33,7 +33,7 @@ export default function ExpenseCreate({ auth, ledgers }) {
                                     id="date"
                                     value={data.date}
                                     onChange={(e) => setData('date', e.target.value)}
-                                    className="className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2""
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 />
                                 {errors.date && <div className="text-red-500 text-sm mt-1">{errors.date}</div>}
@@ -45,7 +45,7 @@ export default function ExpenseCreate({ auth, ledgers }) {
                                     id="ledger_id"
                                     value={data.ledger_id}
                                     onChange={(e) => setData('ledger_id', e.target.value)}
-                                    className="className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2""
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 >
                                     <option value="">Select a Ledger</option>
@@ -63,7 +63,7 @@ export default function ExpenseCreate({ auth, ledgers }) {
                                     id="amount"
                                     value={data.amount}
                                     onChange={(e) => setData('amount', e.target.value)}
-                                    className="className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2""
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 />
                                 {errors.amount && <div className="text-red-500 text-sm mt-1">{errors.amount}</div>}
@@ -76,7 +76,7 @@ export default function ExpenseCreate({ auth, ledgers }) {
                                     value={data.description}
                                     onChange={(e) => setData('description', e.target.value)}
                                     rows="3"
-                                    className="className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2""
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 ></textarea>
                                 {errors.description && <div className="text-red-500 text-sm mt-1">{errors.description}</div>}
                             </div>

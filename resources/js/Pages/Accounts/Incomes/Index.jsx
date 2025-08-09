@@ -51,7 +51,7 @@ export default function IncomeIndex({ auth, incomes }) {
                                         ))
                                     ) : (
                                         <tr>
-                                            <td colSpan="5" className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-center">No incomes found.</td>
+                                            <td colSpan="5" className="px-6 py-4 whitespace-nowrap text-sm text-white text-center">No incomes found.</td>
                                         </tr>
                                     )}
                                 </tbody>
