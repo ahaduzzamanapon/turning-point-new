@@ -94,8 +94,8 @@ export default function LedgerWiseExpenses({ auth, expenses, filters, ledgers })
                                                 {expenses[ledgerName].map((expense) => (
                                                     <tr key={expense.id}>
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{new Date(expense.date).toLocaleDateString()}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{expense.amount}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{expense.description}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.amount}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.description}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>
@@ -105,7 +105,7 @@ export default function LedgerWiseExpenses({ auth, expenses, filters, ledgers })
                                 </div>
                             ))
                         ) : (
-                            <p className="text-center text-white">No expenses found for the selected date range.</p>
+                            <p className="text-center text-gray-700">No expenses found for the selected date range.</p>
                         )}
                     </div>
                 </div>

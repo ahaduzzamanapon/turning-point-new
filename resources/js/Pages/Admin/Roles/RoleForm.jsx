@@ -10,7 +10,7 @@ export default function RoleForm({ data, setData, errors }) {
                     id="name"
                     value={data.name}
                     onChange={(e) => setData('name', e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                 />
                 {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}
             </div>

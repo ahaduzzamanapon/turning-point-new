@@ -12,7 +12,7 @@ export default function CourseShow({ auth, course }) {
             <div className="py-2">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 min-h-[73vh]">
-                        <div className="p-6 text-white">
+                        <div className="p-6 text-gray-900">
                             <h3 className="text-xl font-bold mb-4">{course.name}</h3>
                             <p><strong>Amount:</strong> {course.amount}</p>
                             <p><strong>Start Date:</strong> {course.start_date}</p>

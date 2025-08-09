@@ -60,26 +60,26 @@ export default function Dashboard({ totalStudents, totalCourses, monthlyRevenue,
                 },
             },
             title: {
-                display: true,
-                text: 'Sales Performance',
-                color: 'white', // Title text color
-            },
+                    display: true,
+                    text: 'Sales Performance',
+                    color: 'gray-900', // Title text color
+                },
         },
         scales: {
             x: {
                 ticks: {
-                    color: 'white', // X-axis label color
+                    color: 'gray-900', // X-axis label color
                 },
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)', // X-axis grid line color
+                    color: 'rgba(0, 0, 0, 0.1)', // X-axis grid line color
                 },
             },
             y: {
                 ticks: {
-                    color: 'white', // Y-axis label color
+                    color: 'gray-900', // Y-axis label color
                 },
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)', // Y-axis grid line color
+                    color: 'rgba(0, 0, 0, 0.1)', // Y-axis grid line color
                 },
             },
         },
@@ -106,30 +106,30 @@ export default function Dashboard({ totalStudents, totalCourses, monthlyRevenue,
             legend: {
                 position: 'top',
                 labels: {
-                    color: 'white',
+                    color: 'gray-900',
                 },
             },
             title: {
                 display: true,
                 text: 'Course Enrollments',
-                color: 'white',
+                color: 'gray-900',
             },
         },
         scales: {
             x: {
                 ticks: {
-                    color: 'white',
+                    color: 'gray-900', // X-axis label color
                 },
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)',
+                    color: 'rgba(0, 0, 0, 0.1)', // X-axis grid line color
                 },
             },
             y: {
                 ticks: {
-                    color: 'white',
+                    color: 'gray-900',
                 },
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)',
+                    color: 'rgba(0, 0, 0, 0.1)',
                 },
             },
         },
@@ -166,12 +166,12 @@ export default function Dashboard({ totalStudents, totalCourses, monthlyRevenue,
                     {/* Charts Section */}
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         {/* Line Chart Card */}
-                        <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 ">
+                        <div className="bg-white shadow-lg rounded-lg border border-gray-200 p-6 ">
                             <Line data={lineChartConfig} options={lineChartOptions} />
                         </div>
 
                         {/* Bar Chart Card */}
-                        <div className="bg-black/30 backdrop-blur-xl shadow-lg rounded-lg border border-white/10 p-6 ">
+                        <div className="bg-white shadow-lg rounded-lg border border-gray-200 p-6 ">
                             <Bar data={barChartConfig} options={barChartOptions} />
                         </div>
                     </div>

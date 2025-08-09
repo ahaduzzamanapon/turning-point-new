@@ -32,7 +32,7 @@ export default function EmployeeAttendanceCreate({ auth, employees }) {
                                     id="employee_id"
                                     value={data.employee_id}
                                     onChange={(e) => setData('employee_id', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 >
                                     <option value="">Select an Employee</option>
@@ -50,7 +50,7 @@ export default function EmployeeAttendanceCreate({ auth, employees }) {
                                     id="date"
                                     value={data.date}
                                     onChange={(e) => setData('date', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 />
                                 {errors.date && <div className="text-red-500 text-sm mt-1">{errors.date}</div>}
@@ -62,7 +62,7 @@ export default function EmployeeAttendanceCreate({ auth, employees }) {
                                     id="status"
                                     value={data.status}
                                     onChange={(e) => setData('status', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 >
                                     <option value="present">Present</option>
@@ -79,7 +79,7 @@ export default function EmployeeAttendanceCreate({ auth, employees }) {
                                     value={data.notes}
                                     onChange={(e) => setData('notes', e.target.value)}
                                     rows="3"
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 ></textarea>
                                 {errors.notes && <div className="text-red-500 text-sm mt-1">{errors.notes}</div>}
                             </div>

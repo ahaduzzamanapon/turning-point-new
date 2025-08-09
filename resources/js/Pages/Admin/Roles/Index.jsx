@@ -88,7 +88,7 @@ export default function RoleManagement({ auth, roles, permissions }) {
                                                         onChange={() => handlePermissionChange(role.id, permission.id)}
                                                         className="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                                     />
-                                                    <span className="text-sm text-white">{permission.name}</span>
+                                                    <span className="text-sm text-gray-700">{permission.name}</span>
                                                 </label>
                                             ))}
                                         </div>

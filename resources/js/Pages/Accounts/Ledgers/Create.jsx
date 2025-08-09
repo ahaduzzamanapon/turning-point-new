@@ -32,7 +32,7 @@ export default function LedgerCreate({ auth }) {
                                     id="name"
                                     value={data.name}
                                     onChange={(e) => setData('name', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 />
                                 {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}
@@ -44,7 +44,7 @@ export default function LedgerCreate({ auth }) {
                                     id="type"
                                     value={data.type}
                                     onChange={(e) => setData('type', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 >
                                     <option value="expense">Expense</option>
@@ -60,7 +60,7 @@ export default function LedgerCreate({ auth }) {
                                     value={data.description}
                                     onChange={(e) => setData('description', e.target.value)}
                                     rows="3"
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 ></textarea>
                                 {errors.description && <div className="text-red-500 text-sm mt-1">{errors.description}</div>}
                             </div>

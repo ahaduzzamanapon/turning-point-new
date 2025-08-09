@@ -35,7 +35,7 @@ export default function EmployeeCreate({ auth }) {
                                     id="name"
                                     value={data.name}
                                     onChange={(e) => setData('name', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 />
                                 {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}
@@ -48,7 +48,7 @@ export default function EmployeeCreate({ auth }) {
                                     id="email"
                                     value={data.email}
                                     onChange={(e) => setData('email', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                     required
                                 />
                                 {errors.email && <div className="text-red-500 text-sm mt-1">{errors.email}</div>}
@@ -61,7 +61,7 @@ export default function EmployeeCreate({ auth }) {
                                     id="phone"
                                     value={data.phone}
                                     onChange={(e) => setData('phone', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 />
                                 {errors.phone && <div className="text-red-500 text-sm mt-1">{errors.phone}</div>}
                             </div>
@@ -73,7 +73,7 @@ export default function EmployeeCreate({ auth }) {
                                     value={data.address}
                                     onChange={(e) => setData('address', e.target.value)}
                                     rows="3"
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 ></textarea>
                                 {errors.address && <div className="text-red-500 text-sm mt-1">{errors.address}</div>}
                             </div>
@@ -85,7 +85,7 @@ export default function EmployeeCreate({ auth }) {
                                     id="position"
                                     value={data.position}
                                     onChange={(e) => setData('position', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 />
                                 {errors.position && <div className="text-red-500 text-sm mt-1">{errors.position}</div>}
                             </div>
@@ -97,7 +97,7 @@ export default function EmployeeCreate({ auth }) {
                                     id="hire_date"
                                     value={data.hire_date}
                                     onChange={(e) => setData('hire_date', e.target.value)}
-                                    className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
+                                    className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 p-2"
                                 />
                                 {errors.hire_date && <div className="text-red-500 text-sm mt-1">{errors.hire_date}</div>}
                             </div>

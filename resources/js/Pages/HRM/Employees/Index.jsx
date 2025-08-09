@@ -53,7 +53,7 @@ export default function EmployeeIndex({ auth, employees }) {
                                         ))
                                     ) : (
                                         <tr>
-                                            <td colSpan="6" className="px-6 py-4 whitespace-nowrap text-sm text-white text-center">No employees found.</td>
+                                            <td colSpan="6" className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-center">No employees found.</td>
                                         </tr>
                                     )}
                                 </tbody>

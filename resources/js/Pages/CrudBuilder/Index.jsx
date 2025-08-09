@@ -76,7 +76,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                                 type="text"
                                                 value={column.columnName}
                                                 onChange={(e) => handleColumnChange(index, 'columnName', e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                                             />
                                         </div>
                                         <div>
@@ -84,7 +84,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                             <select
                                                 value={column.dataType}
                                                 onChange={(e) => handleColumnChange(index, 'dataType', e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                                             >
                                                 <option value="">Select Type</option>
                                                 <option value="string">String</option>
@@ -102,7 +102,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                             <select
                                                 value={column.inputType}
                                                 onChange={(e) => handleColumnChange(index, 'inputType', e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                                             >
                                                 <option value="">Select Type</option>
                                                 <option value="text">Text</option>
@@ -123,7 +123,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                                 type="text"
                                                 value={column.validationRules}
                                                 onChange={(e) => handleColumnChange(index, 'validationRules', e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                                             />
                                         </div>
                                         <div>
@@ -132,7 +132,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                                 type="text"
                                                 value={column.defaultValue}
                                                 onChange={(e) => handleColumnChange(index, 'defaultValue', e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                                             />
                                         </div>
                                         <div className="flex items-center">
@@ -142,14 +142,14 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                                 onChange={(e) => handleColumnChange(index, 'nullable', e.target.checked)}
                                                 className="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                             />
-                                            <label className="ml-2 block text-sm font-medium text-white">Nullable</label>
+                                            <label className="ml-2 block text-sm font-medium text-gray-700">Nullable</label>
                                         </div>
                                         <div>
                                             <label className="block text-sm font-medium text-white">Relationship</label>
                                             <select
                                                 value={column.relationship}
                                                 onChange={(e) => handleColumnChange(index, 'relationship', e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 bg-black/30 backdrop-blur-xl border border-white/10"
+                                                className="mt-1 block w-full rounded-md border-gray-300 bg-white border border-gray-200"
                                             >
                                                 <option value="">None</option>
                                                 <option value="belongsTo">Belongs To</option>
@@ -185,7 +185,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                             onChange={(e) => setData('timestamps', e.target.checked)}
                                             className="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                         />
-                                        <label htmlFor="timestamps" className="ml-2 block text-sm font-medium text-white">Timestamps</label>
+                                        <label htmlFor="timestamps" className="ml-2 block text-sm font-medium text-gray-700">Timestamps</label>
                                     </div>
                                     <div className="flex items-center">
                                         <input
@@ -195,7 +195,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                             onChange={(e) => setData('softDeletes', e.target.checked)}
                                             className="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                         />
-                                        <label htmlFor="softDeletes" className="ml-2 block text-sm font-medium text-white">Soft Deletes</label>
+                                        <label htmlFor="softDeletes" className="ml-2 block text-sm font-medium text-gray-700">Soft Deletes</label>
                                     </div>
                                     <div className="flex items-center">
                                         <input
@@ -205,7 +205,7 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                                             onChange={(e) => setData('onlyMigration', e.target.checked)}
                                             className="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                         />
-                                        <label htmlFor="onlyMigration" className="ml-2 block text-sm font-medium text-white">Only Migration</label>
+                                        <label htmlFor="onlyMigration" className="ml-2 block text-sm font-medium text-gray-700">Only Migration</label>
                                     </div>
                                 </div>
 
@@ -223,14 +223,14 @@ export default function CrudBuilder({ auth, output, jsonConfig }) {
                             {output && (
                                 <div className="mt-6 p-4 bg-gray-100 rounded-md">
                                     <h3 className="text-lg font-medium text-white">Generation Output:</h3>
-                                    <pre className="mt-2 text-sm text-white whitespace-pre-wrap">{output}</pre>
+                                    <pre className="mt-2 text-sm text-gray-700 whitespace-pre-wrap">{output}</pre>
                                 </div>
                             )}
 
                             {jsonConfig && (
-                                <div className="mt-6 p-4 bg-gray-100 rounded-md">
-                                    <h3 className="text-lg font-medium text-white">Generated JSON Config:</h3>
-                                    <pre className="mt-2 text-sm text-white whitespace-pre-wrap">{jsonConfig}</pre>
+                                <div className="mt-6 p-4 bg-gray-50 rounded-md">
+                                    <h3 className="text-lg font-medium text-gray-900">Generated JSON Config:</h3>
+                                    <pre className="mt-2 text-sm text-gray-700 whitespace-pre-wrap">{jsonConfig}</pre>
                                 </div>
                             )}
                         </div>

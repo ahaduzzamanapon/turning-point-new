@@ -28,7 +28,7 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <div
-            className="relative min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col justify-center items-center p-4 bg-cover bg-center"
+            className="relative min-h-screen bg-white flex flex-col justify-center items-center p-4 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImageUrl})` }}
         >
             {/* Gradient Overlay */}
@@ -64,7 +64,7 @@ export default function Login({ status, canResetPassword }) {
                                     type="email"
                                     name="email"
                                     value={data.email}
-                                    className="mt-1 block w-full bg-white/40 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 focus:ring-indigo-500/50 focus:border-indigo-500/50 rounded-lg shadow-sm"
+                                    className="mt-1 block w-full bg-white border-gray-300 focus:ring-indigo-500/50 focus:border-indigo-500/50 rounded-lg shadow-sm"
                                     autoComplete="username"
                                     isFocused={true}
                                     onChange={(e) => setData('email', e.target.value)}
@@ -73,13 +73,13 @@ export default function Login({ status, canResetPassword }) {
                             </div>
 
                             <div>
-                                <InputLabel htmlFor="password" value="Password" className="text-white dark:text-gray-300 !font-semibold" />
+                                <InputLabel htmlFor="password" value="Password" className="text-gray-700 !font-semibold" />
                                 <TextInput
                                     id="password"
                                     type="password"
                                     name="password"
                                     value={data.password}
-                                    className="mt-1 block w-full bg-white/40 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 focus:ring-indigo-500/50 focus:border-indigo-500/50 rounded-lg shadow-sm"
+                                    className="mt-1 block w-full bg-white border-gray-300 focus:ring-indigo-500/50 focus:border-indigo-500/50 rounded-lg shadow-sm"
                                     autoComplete="current-password"
                                     onChange={(e) => setData('password', e.target.value)}
                                 />
@@ -89,12 +89,12 @@ export default function Login({ status, canResetPassword }) {
                             <div className="flex items-center justify-between">
                                 <label className="flex items-center">
                                     <Checkbox name="remember" checked={data.remember} onChange={(e) => setData('remember', e.target.checked)} />
-                                    <span className="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+                                    <span className="ms-2 text-sm text-gray-700">Remember me</span>
                                 </label>
                                 {canResetPassword && (
                                     <Link
                                         href={route('password.request')}
-                                        className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline"
+                                        className="text-sm text-indigo-600 hover:underline"
                                     >
                                         Forgot your password?
                                     </Link>
@@ -105,7 +105,7 @@ export default function Login({ status, canResetPassword }) {
                                 <PrimaryButton className="w-full justify-center !py-3 !text-base !font-bold" disabled={processing}>
                                     Log In
                                 </PrimaryButton>
-                                <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                                <p className="mt-4 text-sm text-gray-700">
                                     Don't have an account?{' '}
                                     <Link href={route('register')} className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">
                                         Sign up

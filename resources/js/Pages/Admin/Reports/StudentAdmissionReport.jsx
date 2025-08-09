@@ -448,8 +448,8 @@ export default function StudentAdmissionReport({ auth }) {
                                 )}
                             </div>
 
-                            <div className="col-span-1 bg-gray-50 p-4 rounded-lg shadow-inner">
-                                <h4 className="text-md font-semibold text-gray-700 mb-3">Select Students</h4>
+                            <div className="col-span-1 bg-gray-100 p-4 rounded-lg shadow-inner">
+                                <h4 className="text-md font-semibold text-gray-900 mb-3">Select Students</h4>
                                 <TextInput
                                     type="text"
                                     placeholder="Search students..."
@@ -458,7 +458,7 @@ export default function StudentAdmissionReport({ auth }) {
                                     className="w-full mb-3"
                                 />
                                 <div className="max-h-96 overflow-y-auto border border-gray-200 rounded-md p-2">
-                                    {filteredStudents.length === 0 && <p className="text-gray-500">No students found.</p>}
+                                    {filteredStudents.length === 0 && <p className="text-gray-700">No students found.</p>}
                                     {filteredStudents.map(student => (
                                         <div key={student.id} className="flex items-center mb-2">
                                             <Checkbox
@@ -467,7 +467,7 @@ export default function StudentAdmissionReport({ auth }) {
                                                 checked={selectedStudents.some(s => s.id === student.id)}
                                                 onChange={() => handleStudentSelection(student)}
                                             />
-                                            <label htmlFor={`student-${student.id}`} className="ml-2 text-sm text-gray-700 cursor-pointer">
+                                            <label htmlFor={`student-${student.id}`} className="ml-2 text-sm text-gray-900 cursor-pointer">
                                                 {student.name} ({student.mobile_number})
                                             </label>
                                         </div>

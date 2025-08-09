@@ -104,10 +104,10 @@ export default function MonthlyAttendance({ selectedEmployees }) {
                         <tbody className="bg-white divide-y divide-gray-200">
                             {monthlyAttendanceData.map((record) => (
                                 <tr key={record.employee_id}>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{record.employee_name}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.present_days}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.absent_days}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.leave_days}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">{record.employee_name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.present_days}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.absent_days}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.leave_days}</td>
                                 </tr>
                             ))}
                         </tbody>

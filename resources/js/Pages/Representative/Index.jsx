@@ -39,7 +39,7 @@ export default function Index({ data }) {
                                     {data.map((item) => (
                                         <tr key={item.id}>
                                             <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap">{item.number}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-gray-700">{item.number}</td>
                                             {(auth.user.permissions.includes('representatives_edit') || auth.user.permissions.includes('representatives_delete')) && (
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     {auth.user.permissions.includes('representatives_edit') && (

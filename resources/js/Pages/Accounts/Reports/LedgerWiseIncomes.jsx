@@ -105,7 +105,7 @@ export default function LedgerWiseIncomes({ auth, incomes, filters, ledgers }) {
                                 </div>
                             ))
                         ) : (
-                            <p className="text-center text-white">No incomes found for the selected date range.</p>
+                            <p className="text-center text-gray-700">No incomes found for the selected date range.</p>
                         )}
                     </div>
                 </div>

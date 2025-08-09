@@ -76,26 +76,22 @@ export default function DailyAttendance({ selectedEmployees }) {
                 <div className="flex space-x-2">
                     <button
                         onClick={() => handleFilterChange('all')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
-                    >
+                                                className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}
                         All Attendance
                     </button>
                     <button
                         onClick={() => handleFilterChange('present')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'present' ? 'bg-green-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
-                    >
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'present' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}
                         Present Only
                     </button>
                     <button
                         onClick={() => handleFilterChange('absent')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'absent' ? 'bg-red-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
-                    >
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'absent' ? 'bg-red-600 text-white' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}
                         Absent Only
                     </button>
                     <button
                         onClick={() => handleFilterChange('leave')}
-                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'leave' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
-                    >
+                        className={`px-4 py-2 rounded-md text-sm font-medium ${filter === 'leave' ? 'bg-yellow-600 text-white' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}
                         On Leave
                     </button>
                 </div>
@@ -118,25 +114,25 @@ export default function DailyAttendance({ selectedEmployees }) {
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Employee Name</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Check In</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Check Out</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Employee Name</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Status</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Check In</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Check Out</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Notes</th>
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
                             {attendanceData.map((record) => (
                                 <tr key={record.id}>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{record.employee_name}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">{record.employee_name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${record.status === 'present' ? 'bg-green-100 text-green-800' : record.status === 'absent' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'}`}>
                                             {record.status}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.check_in || 'N/A'}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.check_out || 'N/A'}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.notes || 'N/A'}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.check_in || 'N/A'}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.check_out || 'N/A'}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.notes || 'N/A'}</td>
                                 </tr>
                             ))}
                         </tbody>
